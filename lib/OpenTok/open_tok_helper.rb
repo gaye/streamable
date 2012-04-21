@@ -13,6 +13,6 @@ module OpenTokHelper
         :session_id => session,
         :role => OpenTok::RoleConstants::MODERATOR,
         :connection_data => "facebook_uid=#{user.facebook_uid}")
-    session, token
+    [session, token]
   end
 end

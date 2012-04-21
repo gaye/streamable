@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'json'
+gem 'omniauth-facebook'
 gem 'paperclip', '~> 2.7'
 gem 'rails', '3.2.3'
 
