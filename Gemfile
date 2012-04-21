@@ -1,10 +1,17 @@
 source 'https://rubygems.org'
 
+gem 'aws-s3'
+gem 'aws-sdk'
+gem 'paperclip', '~> 2.7'
 gem 'rails', '3.2.3'
-gem 'sqlite3'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Gems used only for assets and not required

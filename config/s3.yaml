@@ -1,0 +1,12 @@
+development:
+  bucket: streamable-dev
+  access_key_id: AKIAIT76LEJ5THHBLIAA
+  secret_access_key: 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
+test:
+  bucket: streamable-test
+  access_key_id: AKIAIT76LEJ5THHBLIAA
+  secret_access_key: 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
+production:
+  bucket: streamable-pro
+  access_key_id: AKIAIT76LEJ5THHBLIAA
+  secret_access_key: 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
