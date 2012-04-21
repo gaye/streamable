@@ -5,10 +5,19 @@
 =end
 class SubscriptionsController < ApplicationController  
   def create
-    # TODO(gaye)
+    @user = User.find(current_user.id)
+    @stream = Stream.find(params[:stream_id])
+    @subscription = Subscription.find_or_create_by_by_stream_id_and_subscriber_id(
+        @stream.id],
+        @user.id)
+    
+    redirect_to @user, :notice => "Great. You're signed up for #{@stream.title}!"
   end
   
   def destroy
-    # TODO(gaye)
+    @subscription.find(:stream_id => params[:stream_id], :subscriber_id => current_user.id)
+    @subscription.destroy
+    
+    redirect_to @user, :notice => "No problem. You're unsubscribed."
   end
 end
