@@ -3,7 +3,7 @@
   Date : 04/21/12
 =end
 module FacebookConnectHelper
-  def parse(omniauth)
+  def self.parse(omniauth)
     {
       :first_name => omniauth['info']['first_name'],
       :last_name => omniauth['info']['last_name'],

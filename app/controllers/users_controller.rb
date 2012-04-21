@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   # POST /auth/facebook/callback
   def facebook_callback
     omniauth = request.env['omniauth.auth']
-    user = FacebookConnect::parse(omniauth)
+    user = FacebookConnectHelper::parse(omniauth)
     
     if @user = User.find_by_facebook_uid(omniauth['uid'])
       redirect_to :update, :id => @user.id, :user => user
