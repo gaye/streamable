@@ -1,3 +1,8 @@
+=begin
+  Provides a RESTful collection of actions on subscriptions
+  Author : Gareth Aye (gareth@streamable.tv)
+  Date : 04/21/12
+=end
 class SubscriptionsController < ApplicationController
   def index
     # TODO(gaye)

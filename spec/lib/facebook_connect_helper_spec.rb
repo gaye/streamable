@@ -4,6 +4,6 @@ require 'spec_helper'
   Author : Gareth Aye (gareth@streamable.tv)
   Date : 04/21/12
 =end
-describe StreamsController do
+describe FacebookConnectHelper do
   # TODO(gaye)
 end

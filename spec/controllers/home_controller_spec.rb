@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+=begin
+  Author : Gareth Aye (gareth@streamable.tv)
+  Date : 04/21/12
+=end
 describe HomeController do
   context 'a logged out user visits home index' do
     before :each do

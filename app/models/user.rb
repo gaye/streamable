@@ -1,3 +1,7 @@
+=begin
+  Author : Gareth Aye (gareth@streamable.tv)
+  Date : 04/21/12
+=end
 class User < ActiveRecord::Base
   has_many :subscriptions, :foreign_key => 'subscriber_id'
   has_many :streams_as_publisher, :foreign_key => 'publisher_id', :class_name => 'Stream'
