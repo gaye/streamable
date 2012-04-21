@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
     @user = User.find(current_user.id)
     @stream = Stream.find(params[:stream_id])
     @subscription = Subscription.find_or_create_by_by_stream_id_and_subscriber_id(
-        @stream.id],
+        @stream.id,
         @user.id)
     
     redirect_to @user, :notice => "Great. You're signed up for #{@stream.title}!"

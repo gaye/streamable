@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'ci_reporter'
 gem 'json'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 2.7'
