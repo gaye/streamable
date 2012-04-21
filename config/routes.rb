@@ -4,4 +4,6 @@ Streamable::Application.routes.draw do
   resources :streams
   resources :subscriptions
   resources :users
+  
+  match 'auth/facebook/callback' => 'users#facebook_callback'
 end

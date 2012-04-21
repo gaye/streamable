@@ -26,4 +26,8 @@ class UsersController < ApplicationController
   def destroy
     # TODO(gaye)
   end
+  
+  def facebook_callback
+    # TODO(gaye)
+  end
 end
