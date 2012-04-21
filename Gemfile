@@ -11,6 +11,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'thin'
 end
 
 group :production do

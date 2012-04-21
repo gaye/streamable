@@ -3,7 +3,7 @@ Streamable::Application.routes.draw do
   
   resources :streams
   resources :subscriptions
-  resources :users
+  resources :users, :except => [:edit, :create, :update, :destroy]
   
   match 'auth/facebook/callback' => 'users#facebook_callback'
 end
