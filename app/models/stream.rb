@@ -14,6 +14,7 @@ class Stream < ActiveRecord::Base
                         :opentok_session_id,
                         :publisher_token
   
+  # TODO(gaye): If possible, replace this with a has_many :through
   def subscribers
     subscriptions.map(&:user)
   end
