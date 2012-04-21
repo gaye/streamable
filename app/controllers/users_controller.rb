@@ -86,9 +86,9 @@ class UsersController < ApplicationController
     user = FacebookConnectHelper::parse(omniauth)
     
     if @user = User.find_by_facebook_uid(omniauth['uid'])
-      redirect_to :update, :id => @user.id, :user => user
+      redirect_to :action => 'update', :id => @user.id, :user => user
     else
-      redirect_to :create, :user => user
+      redirect_to :action => 'create', :user => user
     end
   end
 end
