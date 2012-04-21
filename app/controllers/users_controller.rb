@@ -4,7 +4,7 @@
   Author : Gareth Aye (gareth@streamable.tv)
   Date : 04/21/12
 =end
-class UsersController < ApplicationController  
+class UsersController < ApplicationController 
   # GET /users/1
   # GET /users/1.json
   def show
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
     @user.token_expiration = omniauth['credentials']['expires_at']
     
     if @user.save
+      session[:user_id] = @user.id
       redirect_to @user, :notice => "Hi #{@user}!"
     else
-      # TODO(gaye): Is this right?
-      render :action => 'new'
+      redirect_to root_path, :notice => 'Failed to authenticate with Facebook. Please try again.'
     end
   end
 end

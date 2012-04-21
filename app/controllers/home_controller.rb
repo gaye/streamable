@@ -5,6 +5,10 @@
 =end
 class HomeController < ApplicationController
   def index
-    render :layout => 'home'
+    if current_user
+      redirect_to streams_path
+    else
+      render :layout => 'home'
+    end
   end
 end
