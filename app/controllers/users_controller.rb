@@ -4,18 +4,7 @@
   Author : Gareth Aye (gareth@streamable.tv)
   Date : 04/21/12
 =end
-class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-    
-    respond_to do |format|
-      format.html
-      format.json { render :json => @users }
-    end
-  end
-  
+class UsersController < ApplicationController  
   # GET /users/1
   # GET /users/1.json
   def show
