@@ -12,7 +12,7 @@ describe UsersController do
   context 'user visits new' do
     it 'should redirect the user to facebook' do
       get :new
-      response.should be_redirect
+      response.should redirect_to('/auth/facebook')
     end
   end
   

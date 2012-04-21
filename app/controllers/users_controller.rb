@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    redirect_to url_for('/auth/facebook')
+    redirect_to '/auth/facebook'
   end
   
   # POST /auth/facebook/callback
