@@ -15,4 +15,13 @@ module OpenTokHelper
         :connection_data => "facebook_uid=#{user.facebook_uid}")
     [session, token]
   end
+  
+  def self.generate_publisher_token(user, stream)
+    opentok = OpenTok::OpenTokSDK.new(OPENTOK_API_KEY, OPENTOK_API_SECRET)
+    token = opentok.generate_token(
+        :session_id => stream.opentok_session_id, 
+        :role => OpenTok::RoleConstants::PUBLISHER,
+        :connection_data => "facebook_uid=#{user.facebook_uid}")
+    token
+  end
 end
