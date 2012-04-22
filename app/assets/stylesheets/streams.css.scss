@@ -1,0 +1,22 @@
+#dashboard {
+  border:1px solid black;
+  float:left;
+  width:300px;
+  margin:25px;
+}
+
+#streamlist {
+  border:1px solid black;
+  float:left;
+  width:700px;
+  margin:25px;
+  
+  #slider {
+    margin:10px;
+  }
+  
+  #positions {
+    width:100%;
+    text-align:center;
+  }
+}
