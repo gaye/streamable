@@ -62,8 +62,6 @@ class StreamsController < ApplicationController
     
     @stream = Stream.new(params[:stream])
     
-    puts @stream.to_json
-    
     respond_to do |format|
       if @stream.save
         format.html { redirect_to @stream, :notice => "Great! We'll see you at #{@stream.when}!" }

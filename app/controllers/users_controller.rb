@@ -27,12 +27,13 @@ class UsersController < ApplicationController
     omniauth = request.env['omniauth.auth']
     
     @user = User.find_or_create_by_facebook_uid(omniauth['uid'])
-    @user.first_name = omniauth['info']['first_name']
-    @user.last_name = omniauth['info']['last_name']
-    @user.image_url = omniauth['info']['image']
-    @user.raw = omniauth.to_json
-    @user.token = omniauth['credentials']['token']
-    @user.token_expiration = omniauth['credentials']['expires_at']
+    @user.update_attributes(
+      :first_name => omniauth['info']['first_name'],
+      :last_name => omniauth['info']['last_name'],
+      :image_url => omniauth['info']['image'],
+      :raw => omniauth.to_json,
+      :token => omniauth['credentials']['token'],
+      :token_expiration => omniauth['credentials']['expires_at'])
     
     if @user.save
       session[:user_id] = @user.id
