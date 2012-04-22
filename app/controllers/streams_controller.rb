@@ -8,7 +8,7 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = User.all
+    @streams = Stream.all
     
     respond_to do |format|
       format.html
