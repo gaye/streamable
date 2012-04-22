@@ -6,7 +6,7 @@ module OpenTokHelper
   OPENTOK_API_KEY = '14128932'
   OPENTOK_API_SECRET = 'eeaa4556a2e1c8a245477a449312fc6127c2246b'
   
-  def self.create_session_and_generate_moderator_token(user, request)
+  def self.create_session_and_generate_publisher_token(user, request)
     opentok = OpenTok::OpenTokSDK.new(OPENTOK_API_KEY, OPENTOK_API_SECRET)
     session = opentok.create_session(request.remote_addr)
     token = opentok.generate_token(
@@ -16,7 +16,7 @@ module OpenTokHelper
     [session, token]
   end
   
-  def self.generate_publisher_token(user, stream)
+  def self.generate_subscriber_token(user, stream)
     opentok = OpenTok::OpenTokSDK.new(OPENTOK_API_KEY, OPENTOK_API_SECRET)
     token = opentok.generate_token(
         :session_id => stream.opentok_session_id, 
