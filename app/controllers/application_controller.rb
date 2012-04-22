@@ -7,14 +7,15 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :logout
   
+  # GET users/logout
+  def logout
+    session.delete :user_id
+    redirect_to root_path, :notice => 'Logged out successfully.'
+  end
+  
   private
   
   def current_user
     session[:user_id] ? User.find(session[:user_id]) : nil
-  end
-  
-  def logout
-    session.delete :user_id
-    redirect_to root_path, :notice => 'Logged out successfully.'
   end
 end

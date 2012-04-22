@@ -7,11 +7,22 @@ class SubscriptionsController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @stream = Stream.find(params[:stream_id])
-    @subscription = Subscription.find_or_create_by_by_stream_id_and_subscriber_id(
-        @stream.id,
-        @user.id)
-    
-    redirect_to @user, :notice => "Great. You're signed up for #{@stream.title}!"
+    @token = OpenTokHelper::generate_subscriber_token(@user, @stream)
+    @subscription = Subscription.new(
+        :stream_id => @stream.id, 
+        :subscriber_id => @user.id,
+        :subscriber_token => @token)
+        
+    respond_to do |format|
+      if @subscription.save
+        # TODO(gaye): Where should they go?
+        format.html { redirect_to @stream, :notice => "You're subscribed! See you at #{@stream.when}!" }
+        format.json { render :json => @subscription, :status => :created }
+      else
+        format.html { redirect_to @stream, :notice => 'Something went wrong. Please try subscribing again.' }
+        format.json { render :json => @subscription.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   def destroy

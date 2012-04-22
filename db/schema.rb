@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20120422014950) do
-
   create_table "streams", :force => true do |t|
     t.integer  "publisher_id"
     t.string   "title"
@@ -34,8 +33,9 @@ ActiveRecord::Schema.define(:version => 20120422014950) do
   create_table "subscriptions", :force => true do |t|
     t.integer  "subscriber_id"
     t.integer  "stream_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "subscriber_token"
   end
 
   create_table "tags", :force => true do |t|
