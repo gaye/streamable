@@ -26,4 +26,4 @@ end
 
 require 'OpenTok/Exceptions'
 require 'OpenTok/OpenTokSDK'
-require 'OpenTok/OpenTokHelper'
+

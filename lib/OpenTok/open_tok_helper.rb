@@ -2,6 +2,9 @@
   Author : Gareth Aye (gareth@streamable.tv)
   Date : 04/21/12
 =end
+
+require 'open_tok'
+
 module OpenTokHelper
   OPENTOK_API_KEY = '14128932'
   OPENTOK_API_SECRET = 'eeaa4556a2e1c8a245477a449312fc6127c2246b'
