@@ -1,0 +1,26 @@
+#dashboard {
+  border:1px solid black;
+  float:left;
+  width:300px;
+  margin:25px;
+}
+
+#streamlist {
+  position: absolute;
+  left: 500px;
+  float: left;
+  
+  
+  #slider {
+    width: 700px;
+  }
+  
+  #positions {
+    position: relative;
+    left: -4px;
+    width: 115.6%;
+    td {
+      width: 14.28%;
+    }
+  }
+}
