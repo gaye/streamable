@@ -6,5 +6,5 @@ Streamable::Application.routes.draw do
   resources :users, :only => [:show, :new]
   
   match 'auth/facebook/callback' => 'users#facebook_callback'
-  match 'users/logout' => 'users#logout'
+  match 'users/logout' => 'application#logout'
 end
