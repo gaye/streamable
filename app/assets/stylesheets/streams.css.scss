@@ -6,17 +6,21 @@
 }
 
 #streamlist {
-  border:1px solid black;
-  float:left;
-  width:700px;
-  margin:25px;
+  position: absolute;
+  left: 500px;
+  float: left;
+  
   
   #slider {
-    margin:10px;
+    width: 700px;
   }
   
   #positions {
-    width:100%;
-    text-align:center;
+    position: relative;
+    left: -4px;
+    width: 115.6%;
+    td {
+      width: 14.28%;
+    }
   }
 }
