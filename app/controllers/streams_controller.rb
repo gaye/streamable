@@ -8,8 +8,12 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = User.all
-    
+    if (params[:tags])
+      tags = params[:tags].to_set
+      @streams = Stream.all.select{|s| tags.subset?(s.tags.map(&:name).to_set)}
+    else
+      @streams = Stream.all
+    end
     respond_to do |format|
       format.html
       format.json { render :json => @streams }

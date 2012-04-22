@@ -8,6 +8,11 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 2.7'
 gem 'rails', '3.2.3'
 
+# allows us to move data from the db to a yaml file and back
+# rake db:data:dump   ->   Dump contents of Rails database to db/data.yml
+# rake db:data:load   ->   Load contents of db/data.yml into the database
+gem 'yaml_db'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec'

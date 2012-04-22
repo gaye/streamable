@@ -5,6 +5,7 @@
 class Stream < ActiveRecord::Base
   belongs_to :publisher, :foreign_key => 'publisher_id', :class_name => 'User'
   has_many :subscriptions
+  has_and_belongs_to_many :tags
   
   has_attached_file :video_preview,
                     :storage => :s3,
