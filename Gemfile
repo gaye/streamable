@@ -18,6 +18,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'therubyracer'
   gem 'thin'
 end
 
