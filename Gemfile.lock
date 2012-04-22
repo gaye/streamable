@@ -163,6 +163,7 @@ GEM
       multi_json (>= 1.0.2)
     uuidtools (2.1.2)
     xml-simple (1.1.1)
+    yaml_db (0.2.2)
 
 PLATFORMS
   ruby
@@ -184,3 +185,4 @@ DEPENDENCIES
   sqlite3
   thin
   uglifier (>= 1.0.3)
+  yaml_db
