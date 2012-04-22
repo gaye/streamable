@@ -8,7 +8,16 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = Stream.all
+    if params[:tags]
+      params[:tags].each do |tag|
+        streams_with_tag = Tag.find_by_name(tag).streams
+        @streams ||= streams_with_tag
+        @streams = @streams & streams_with_tag
+        break if @streams.empty?
+      end
+    else
+      @streams = Stream.all
+    end
     
     respond_to do |format|
       format.html
@@ -57,8 +66,6 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
-    
-    puts @stream.to_json
     
     respond_to do |format|
       if @stream.save
