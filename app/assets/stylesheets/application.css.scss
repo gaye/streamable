@@ -11,8 +11,16 @@
 //  *= require_self
 //  *= require_tree .
 // */
+@import "mixins.css.scss";
+
 body {
+  #container {
+    width: 1500px;
+  }
   #header {
     height: 200px;
+  }
+  .clearboth {
+    clear: both;
   }
 }

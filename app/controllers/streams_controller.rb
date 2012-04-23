@@ -18,7 +18,7 @@ class StreamsController < ApplicationController
     else
       @streams = Stream.all
     end
-    
+    @tags = Tag.all    
     respond_to do |format|
       format.html
       format.json { render :json => @streams }
