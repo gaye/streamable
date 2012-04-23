@@ -5,16 +5,36 @@ require 'spec_helper'
   Date : 04/23/12
 =end
 describe ApplicationController do
-  context 'user logs out' do
-    SESSION_ID = 1
+  fixtures :users
+  
+  context 'user logs in' do
     before :each do
-      session[:user_id] = SESSION_ID
+      get :logout
+      @user = users(:gareth)
+    end
+    
+    it 'should have logged the user in' do
+      controller.user_logged_in?.should be_false
+      controller.login(@user)
+      controller.user_logged_in?.should be_true
+    end
+    
+    it 'should now be the case that current_user returns the logged in user' do
+      controller.login(@user)
+      controller.current_user.should == @user
+    end
+  end
+  
+  context 'user logs out' do
+    before :each do
+      @user = users(:gareth)
+      controller.login(@user)
     end
     
     it 'should delete the user session' do
-      session[:user_id].should == SESSION_ID
+      controller.user_logged_in?.should be_true
       get :logout
-      session[:user_id].should be_nil
+      controller.user_logged_in?.should be_false
     end
     
     it 'should redirect the user to the root page' do
