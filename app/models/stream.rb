@@ -32,4 +32,8 @@ class Stream < ActiveRecord::Base
   def subscribers
     subscriptions.map(&:user)
   end
+  
+  def subscribed?(user)
+    subscribers.include?(user)
+  end
 end
