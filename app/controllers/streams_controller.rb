@@ -60,7 +60,7 @@ class StreamsController < ApplicationController
   def create
     # TODO(gaye): Enforce permissions
     session, token = 
-        OpenTokHelper::create_session_and_generate_publisher_token(current_user, request)
+        OpenTokHelper::create_session_and_generate_publisher_token(current_user, request.remote_addr)
     params[:stream][:publisher_id] = current_user.id
     params[:stream][:opentok_session_id] = session.session_id
     params[:stream][:publisher_token] = token

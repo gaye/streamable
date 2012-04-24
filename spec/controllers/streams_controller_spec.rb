@@ -5,7 +5,5 @@ require 'spec_helper'
   Date : 04/21/12
 =end
 describe StreamsController do
-  context 'index is called' do
-    
-  end
+  # TODO(gaye)
 end
