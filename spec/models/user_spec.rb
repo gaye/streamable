@@ -5,5 +5,4 @@ require 'spec_helper'
   Date : 04/21/12
 =end
 describe User do
-  # TODO(gaye)
 end

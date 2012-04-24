@@ -1,5 +1,8 @@
 require 'spec_helper'
 
+=begin
+  Author : Armaan Sarkar (armaan@streamable.tv)
+  Date : 04/24/12
+=end
 describe Tag do
-  pending "add some examples to (or delete) #{__FILE__}"
 end
