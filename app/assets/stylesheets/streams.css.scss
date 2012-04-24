@@ -1,5 +1,6 @@
 @import "mixins.css.scss";
 
+/* streams/index */
 #dashboard {
   border:1px solid black;
   float:left;
@@ -97,4 +98,36 @@
   background-color: #43B8E4;
   @include rounded();
   @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2))
+}
+
+/* streams/new */
+#instruction {
+  text-align: center;
+}
+
+#explanation {
+  text-align: center;
+}
+
+.field {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+#continue {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  padding: 3px;
+  background-color: silver;
+  border: 1px solid black;
+  /* @include rounded(); */
+}
+
+#submit {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
 }
