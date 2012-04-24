@@ -1,3 +1,23 @@
 math:
   id: 1
   name: math
+  
+math:
+  id: 2
+  name: science
+  
+math:
+  id: 3
+  name: social science
+
+math:
+  id: 4
+  name: arts
+
+math:
+  id: 5
+  name: literature
+  
+math:
+  id: 6
+  name: foreign language                

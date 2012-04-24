@@ -4,12 +4,8 @@
 <div id="categories">
   
   <div id="grade_slider">
-    <div id="grades">
-        <% 6.upto(12) do |i| %>
-          <div class="grade_badge">
-            <%= i %>
-          </div>
-        <% end %>
+    <div id="grade_badge">
+      6
     </div>
     <div class="clearboth"></div>
     <br />
@@ -19,7 +15,7 @@
 
   <div id="tags">
     <% @tags.each do |t| %>
-      <span class="tag_button">
+      <span class="tag_button tag">
         <%= t.name %>
       </span>
     <% end %>

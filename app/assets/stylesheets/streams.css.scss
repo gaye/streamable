@@ -12,18 +12,15 @@
   margin-left: 10px;
   width: 900px;
   #grade_slider {
-    #grades {
-      margin-left: 86px;
-      .grade_badge {
-        margin-right: 85px;
-        float: left;
-        background-color: #43B8E4;
-        width: 20px;
-        padding: 5px;
-        text-align: center; 
-        @include rounded(10px);
-        // @include shadow(2px 2px 8px rgba(0,0,0,0.2));
-      }
+    #grade_badge {
+      margin-left: auto;
+      margin-right: auto;
+      width: 40px;
+      @include rounded(40px);
+      text-align: center;
+      padding: 20px;
+      background-color: #43B8E4;
+      font-weight: bold;
     }
     #slider {
       margin-left: auto;
@@ -35,6 +32,9 @@
     margin-left: auto;
     margin-right: auto;    
     margin-top: 40px;
+    .tag {
+      margin-right: 50px;
+    }
   }
 }
 

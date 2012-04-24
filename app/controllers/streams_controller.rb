@@ -107,4 +107,8 @@ class StreamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # capture notifications from the Zencoder service about video encoding
+  def encode_notify
+  end
 end
