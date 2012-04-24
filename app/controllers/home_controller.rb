@@ -4,6 +4,7 @@
   Date : 04/21/12
 =end
 class HomeController < ApplicationController
+  # GET /
   def index
     if current_user
       redirect_to streams_path

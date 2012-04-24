@@ -4,6 +4,8 @@
   Date : 04/21/12
 =end
 class SubscriptionsController < ApplicationController  
+  # POST /subscriptions
+  # POST /subscriptions.json
   def create
     @user = User.find(current_user.id)
     @stream = Stream.find(params[:stream_id])
@@ -25,6 +27,8 @@ class SubscriptionsController < ApplicationController
     end
   end
   
+  # DELETE /subscriptions/1
+  # DELETE /subscriptions/1.json
   def destroy
     @subscription.find(:stream_id => params[:stream_id], :subscriber_id => current_user.id)
     @subscription.destroy
