@@ -10,33 +10,44 @@
       </ul>
     </div>
   <% end %>
+  
+  <h1 id="instruction">
+  </h1>
+  
+  <br />
+  
+  <div id="explanation">
+  </div>
+  
+  <br /><br /><br /><br />
 
-  <div class="field">
-    <%= f.label :title %>
+  <div class="field" id="title">
     <%= f.text_field :title %>
   </div>
   
-  <div class="field">
-    <%= f.label :description %>
+  <div class="field" id="description">
     <%= f.text_area :description %>
   </div>
   
-  <div class="field">
-    <%= f.label :video_preview %>
+  <div class="field" id="video_preview">
     <%= f.file_field :video_preview %>
   </div>
   
-  <div class="field">
-    <%= f.label :when %>
+  <div class="field" id="when">
     <%= f.datetime_select :when %>
   </div>
   
-  <div class="field">
-    <%= f.label :price %>
+  <div class="field" id="price">
     <%= f.text_field :price %>
   </div>
   
-  <div class="actions">
+  <br /><br />
+  
+  <div id="continue">
+    Continue
+  </div>
+  
+  <div class="actions" id="submit">
     <%= f.submit %>
   </div>
 <% end %>
