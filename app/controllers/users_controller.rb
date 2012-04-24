@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       :token_expiration => omniauth['credentials']['expires_at'])
     
     if @user.save
-      session[:user_id] = @user.id
+      login(@user)
       redirect_to @user, :notice => "Hi #{@user}!"
     else
       redirect_to root_path, :notice => 'Failed to authenticate with Facebook. Please try again.'

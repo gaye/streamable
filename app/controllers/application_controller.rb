@@ -5,17 +5,23 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  helper_method :current_user, :logout
+  helper_method :logout, :current_user, :logged_in?
+  
+  def login(user)
+    session[:user_id] = user.id
+  end
   
   # GET users/logout
   def logout
     session.delete :user_id
     redirect_to root_path, :notice => 'Logged out successfully.'
   end
-  
-  private
-  
+
   def current_user
     session[:user_id] ? User.find(session[:user_id]) : nil
+  end
+  
+  def user_logged_in?
+    !current_user.nil?
   end
 end
