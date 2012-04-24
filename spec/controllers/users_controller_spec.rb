@@ -55,7 +55,7 @@ describe UsersController do
       request.env['omniauth.auth'] = mock_omniauth(@user)
       
       get :facebook_callback
-      assigns(:user).first_name.should == @user.first_name
+      User.find_by_facebook_uid(@user.facebook_uid).should == @user
     end
   end
   
