@@ -12,6 +12,7 @@ body {
     #header {
       background-color: rgba(0, 0, 0, 0.66);
       height: 70px;
+      width: 100%;
     
       #logo {
         padding: 10px;
@@ -49,19 +50,25 @@ body {
   		  background-repeat: no-repeat;
   		  height: 50px;
   		  width: 252px;
+  		  display: block;
   		  margin-left: auto;
   		  margin-right: auto;
   		  padding-top: 10px;
   		  padding-left: 55px;
-		  
-  		  a {
-  		    font-size: 20px;
-          text-decoration: none;
-  		    color: white;
-  		    cursor: pointer;
+  		  font-size: 20px;
+        text-decoration: none;
+		    color: white;
+  		  &:hover {
   		    cursor: hand;
+          cursor: pointer;
   		  }
   		}
+  		
+  		#checkit {
+  		  float: right;
+		    text-decoration: none;
+		    color: white;
+		  }
     }
   }
 }

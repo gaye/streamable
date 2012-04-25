@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag     "application", :media => "all" %>
   <%= stylesheet_link_tag     "home" %>
   <%= javascript_include_tag  "application" %>
+  <%= javascript_include_tag  "home" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -12,7 +13,7 @@
 <div id="landing">
   <div id="header">
     <div id="logo">
-      <%= image_tag "streamable.png" %>
+      <%= link_to image_tag('streamable.png'), streams_path %>
     </div>
   </div>
      
@@ -34,9 +35,9 @@
       <br /><br />
     </div>
     
-    <div id="signup">
-      <%= link_to "Sign up with Facebook", url_for("/auth/facebook") %>
-    </div>
+    <%= link_to 'Sign up with Facebook', '/auth/facebook', :id => "signup" %>
+    <%= link_to '...or check it out first!', streams_path, :id => "checkit" %>   
+    <div style="clear:both" />
   </div>
 </div>
 </body>
