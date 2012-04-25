@@ -50,7 +50,7 @@ $(document).ready ->
   
   instructions = [
       "Let's start with a video preview!",
-      "Okay now what do you want to call it?",
+      "Great! Now what do you want to call it?",
       "Can you tell us a bit about it?",
       "Help people find your stream"
       "When is a good time for you?",

@@ -37,6 +37,21 @@ class StreamsController < ApplicationController
     end
   end
   
+  # GET /streams/1/broadcast
+  def broadcast
+    @stream = Stream.find(params[:id])
+    if @stream.publisher == current_user
+      @token = @stream.publisher_token
+      return render :partial => 'publisher'
+    elsif @subscription = Subscription.find_by_stream_id_and_subscriber_id(@stream.id, current_user.id)
+      @token = @subscription.subscriber_token
+      return render :partial => 'subscriber'
+    else
+      # TODO(gaye): What behavior do we want here?
+      redirect_to @stream, :notice => 'No silly! You have to sign up first!'
+    end
+  end
+  
   # GET /streams/new
   # GET /streams/new.json
   def new

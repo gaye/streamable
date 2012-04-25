@@ -17,9 +17,16 @@ body {
   #container {
     width: 1500px;
   }
+  
   #header {
-    height: 200px;
+    background-color: rgba(0, 0, 0, 0.66);
+    height: 70px;
+  
+    #logo {
+      padding: 10px;
+    } 
   }
+  
   .clearboth {
     clear: both;
   }

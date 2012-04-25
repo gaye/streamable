@@ -1,1 +1,43 @@
-<!-- TODO(gaye) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Streamable</title>
+  <%= stylesheet_link_tag     "application", :media => "all" %>
+  <%= stylesheet_link_tag     "home" %>
+  <%= javascript_include_tag  "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div id="landing">
+  <div id="header">
+    <div id="logo">
+      <%= image_tag "streamable.png" %>
+    </div>
+  </div>
+     
+  <div id="container">
+    <div id="instructions">
+      <div id="big">
+        Education's Live Video Marketplace.
+      </div>
+
+      Want to learn how to play the viola? 
+      Need help balancing an equation?
+      Ever wondered how to juggle? 
+      <span class="pitch">We've got it all.</span>
+      <br /><br />
+
+      Have something to teach? 
+      Can you do it over live video?
+      <span class="pitch">Perfect.</span>
+      <br /><br />
+    </div>
+    
+    <div id="signup">
+      <%= link_to "Sign up with Facebook", url_for("/auth/facebook") %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

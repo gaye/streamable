@@ -33,7 +33,7 @@ class Stream < ActiveRecord::Base
     subscriptions.map(&:user)
   end
   
-  def zencoder_setting
-    @zencoder_config ||= YAML.load_file("#{RAILS_ROOT}/config/zencoder.yml")
+  def subscribed?(user)
+    subscribers.include?(user)
   end
 end

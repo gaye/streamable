@@ -103,18 +103,30 @@
 }
 
 /* streams/new */
+#form_container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.66);
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #instruction {
   text-align: center;
+  color: #fbe149;
 }
 
 #explanation {
   text-align: center;
+  color: white;
 }
 
 .field {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
+  color: white;
 }
 
 #continue {
@@ -123,9 +135,14 @@
   margin-right: auto;
   width: 200px;
   padding: 3px;
-  background-color: silver;
-  border: 1px solid black;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.66);
   /* @include rounded(); */
+}
+
+#continue:hover {
+  cursor: hand;
+  cursor: pointer;
 }
 
 #submit {
