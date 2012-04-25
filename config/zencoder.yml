@@ -1,6 +1,0 @@
-s3_output:
-  bucket: streamable-dev
-  access_key_id: AKIAIT76LEJ5THHBLIAA
-  secret_access_key: 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
-settings:
-  notification_url: http://localhost/streams/encode_notify
