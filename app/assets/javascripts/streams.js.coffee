@@ -7,38 +7,27 @@ $(document).ready ->
     $(element).toggleClass('tag_button_pressed')
     $(element).toggleClass('tag_button')
     
-  addTag = (tag_name) ->
-    selectedTags.push(tag_name)
+  addTag = (tagName) ->
+    selectedTags.push(tagName)
     setTagFieldsInForm()
   
-  removeTag = (tag_name) ->
-    selectedTags.splice(selectedTags.indexOf(tag_name), 1)
+  removeTag = (tagName) ->
+    selectedTags.splice(selectedTags.indexOf(tagName), 1)
     setTagFieldsInForm()
-    
-  disableGrade = (disable) ->
-    $('#slider').slider("option", "disabled", disable)
-    if (disable)
-      $('#grade_badge').css('background-color', 'grey')
-      removeTag(current_grade)
-      # $('#grade_enable').html("Add a Grade")
-    else
-      $('#grade_badge').css('background-color', 'blue')
-      addTag(current_grade)
-      # $('#grade_enable').html("Don't add a Grade")
       
-  getGrade = (value)->
-    grade =  if value is 5 then "" else value
-    grade
+  getGrade = (value) ->
+    if value is 5 then '' else value
     
   selectedTags = []
-  current_grade = ""
+  currentGrade = ''
   
-  $('#slider').slider({ step : 1, min: 5, max: 12 })
-  $('#slider').bind("slide", (event, ui) -> 
-    $("#grade_badge").html(getGrade(ui.value))
-    removeTag(current_grade)
-    addTag(getGrade(ui.value))
-    current_grade = getGrade(ui.value)
+  $('#slider').slider({ step : 1, min : 5, max : 12 })
+  $('#slider').bind('slide', (event, ui) -> 
+    newGrade = getGrade(ui.value)
+    $('#grade_badge').html(newGrade)
+    removeTag(currentGrade)
+    addTag(newGrade)
+    currentGrade = newGrade
   )
     
   $('.tag_button').live('click', -> 
@@ -62,21 +51,21 @@ $(document).ready ->
   ]
   
   instructions = [
-      "Let's start with a video preview!",
-      "Great! Now what do you want to call it?",
-      "Can you tell us a bit about it?",
-      "Help people find your stream"
-      "When is a good time for you?",
-      "How much do you want to charge students?"
+      'Let\'s start with a video preview!',
+      'Great! Now what do you want to call it?',
+      'Can you tell us a bit about it?',
+      'Help people find your stream'
+      'When is a good time for you?',
+      'How much do you want to charge students?'
   ]
   
   explanations = [
-    "Choose a video that exemplifies the kind of content you'll broadcast.",
-    "Pick the name that best describes your show.",
-    "A nice, paragraph-long description gives the users better info.",
-    "Use the slider to pick a grade level and select one or more subject categories.",
-    "Pick a time when you can be at your computer and you won't have any conflicts.",
-    "It's up to you!"
+    'Choose a video that exemplifies the kind of content you\'ll broadcast.',
+    'Pick the name that best describes your show.',
+    'A nice, paragraph-long description gives the users better info.',
+    'Use the slider to pick a grade level and select one or more subject categories.',
+    'Pick a time when you can be at your computer and you won\'t have any conflicts.',
+    'It\'s up to you!'
   ]
   
   actions = [

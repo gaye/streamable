@@ -58,6 +58,7 @@ class StreamsController < ApplicationController
     # TODO(gaye): Enforce permissions
     @stream = Stream.new
     @tags = Tag.all
+    
     respond_to do |format|
       format.html
       format.json { render :json => @stream }
@@ -81,12 +82,6 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
-    p "params:"
-    puts params[:tags]
-
-    tags = params[:tags].split(",") 
-    p "tags:"
-    puts tags
     
     tags.each do |t|
       tag = Tag.find_by_name(t)
@@ -132,9 +127,5 @@ class StreamsController < ApplicationController
       format.html { redirect_to streams_url }
       format.json { head :no_content }
     end
-  end
-  
-  # capture notifications from the Zencoder service about video encoding
-  def encode_notify
   end
 end
