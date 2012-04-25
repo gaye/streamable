@@ -56,4 +56,19 @@ describe StreamsController do
       assigns(:token).should == @stream.publisher_token
     end
   end
+  
+  context 'create is called' do
+    before :each do
+      @user = users(:gareth)
+      SESSION = stub(Object, :session_id => (SESSION_ID = 'abcitseasyas123'))
+      TOKEN = 'token+8675309'
+      
+      controller.login(@user)
+      OpenTokHelper.stub(:create_session_and_generate_publisher_token).and_return([SESSION, TOKEN])
+    end
+    
+    it 'should save a stream to the database' do
+      pending 'TODO(gaye): Figure out how to mock out video uploads'
+    end
+  end
 end

@@ -1,0 +1,67 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #1B98CB;
+  margin: 0;
+  
+  #landing {
+    color: white;
+  
+    #header {
+      background-color: rgba(0, 0, 0, 0.66);
+      height: 70px;
+    
+      #logo {
+        padding: 10px;
+      }
+    }
+  
+    #container {
+      margin: 50px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.66);
+      width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+
+      #instructions {
+        padding-top: 20px;
+        font-family: Gill Sans, sans-serif;
+        font-size: 25px;
+        line-height: 150%;
+
+    		#big {
+    		  color: #fbe149;
+    			font-size: 40px;
+    			padding-bottom: 30px;
+    		}
+
+    		.pitch {
+    		  font-style: italic;
+    		  color: #fbe149;
+    		}
+    	}
+  	
+    	#signup {
+  		  background: url('facebook.png');
+  		  background-repeat: no-repeat;
+  		  height: 50px;
+  		  width: 252px;
+  		  margin-left: auto;
+  		  margin-right: auto;
+  		  padding-top: 10px;
+  		  padding-left: 55px;
+		  
+  		  a {
+  		    font-size: 20px;
+          text-decoration: none;
+  		    color: white;
+  		    cursor: pointer;
+  		    cursor: hand;
+  		  }
+  		}
+    }
+  }
+}
