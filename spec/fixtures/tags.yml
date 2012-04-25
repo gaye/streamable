@@ -6,9 +6,9 @@ science:
   id: 2
   name: science
   
-social science:
+social studies:
   id: 3
-  name: social science
+  name: social studies
 
 arts:
   id: 4

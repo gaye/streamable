@@ -1,0 +1,15 @@
+one:
+  stream_id: balancing
+  tag: science
+  
+two:
+  stream_id: balancing
+  tag: grade-7
+  
+three:
+  stream_id: inequalities
+  tag: math
+  
+four:
+  stream_id: inequalitie
+  tag: grade-8
