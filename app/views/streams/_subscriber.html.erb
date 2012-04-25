@@ -1,0 +1,48 @@
+<div id="publisher">
+</div>
+
+<div id="subscribers">
+</div>
+
+<script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+<script type="text/javascript">
+  var apiKey = "14128932";
+  var sessionId = "<%= @stream.opentok_session_id %>";
+  var token = "<%= @token %>";
+
+  TB.setLogLevel(TB.DEBUG);
+
+  var session = TB.initSession(sessionId);
+  session.addEventListener('sessionConnected', sessionConnectedHandler);
+  session.addEventListener('streamCreated', streamCreatedHandler);
+  session.connect(apiKey, token);
+  
+  function sessionConnectedHandler(event) {
+    var div = document.createElement('div');
+    div.setAttribute('id', 'me');
+    $('#subscribers').append(div);
+    session.publish('me')
+    subscribeToStreams(event.streams);
+  }
+
+  function streamCreatedHandler(event) {
+    subscribeToStreams(event.streams);
+  }
+  
+  function subscribeToStreams(streams) {
+    for (var i = 0; i < streams.length; i++) {
+      if (streams[i].connection.connectionId != session.connection.connectionId) {
+        var div;
+        if (streams[i].name == 'publisher') {
+          div = $('#publisher');
+        } else {
+          div = document.createElement('div');
+          div.setAttribute('id', 'subscriber' + stream[i].streamId);
+          $('#subscribers').append(div);
+        }
+        
+        session.subscribe(streams[i], div.id);
+      }
+    }
+  }
+</script>
