@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>Streamable</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag "jquery-ui-1.8.19.custom.css" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag     "application", :media => "all" %>
+  <%= stylesheet_link_tag     "jquery-ui-1.8.19.custom.css" %>
+  <%= javascript_include_tag  "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="header">
-  
+    <div id="logo">
+      <%= image_tag "streamable.png" %>
+    </div>
   </div>
 
   <%= yield %>
