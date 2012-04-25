@@ -9,6 +9,30 @@ describe StreamsController do
   fixtures :users
   fixtures :subscriptions
   
+  context 'index is called with tags' do
+    it 'should set @streams to the appropriate, filtered streams' do
+      pending 'TODO(gaye): Once Armaan adds stream fixtures, implement this'
+    end
+  end
+  
+  context 'index is called without tags' do
+    it 'should set @streams to the collection of all streams' do
+      pending 'TODO(gaye): Once Armaan adds stream fixtures, implement this'
+    end
+  end
+  
+  context 'show is called and stream is found' do
+    it 'should set @stream appropriately' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'show is called but stream is not found' do
+    it 'should return 404 not found' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
   context 'broadcast is called and current user doesn\'t have a subscription' do
     before :each do
       @stream = streams(:inequalities)
@@ -57,6 +81,24 @@ describe StreamsController do
     end
   end
   
+  context 'edit is called, stream is found, and current user is publisher' do
+    it 'should set @stream appropriately' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'edit is called, stream is found, but current user is not publisher' do
+    it 'should return 401 unauthorized' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'edit is called but stream is not found' do
+    it 'should return 404 not found' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
   context 'create is called' do
     before :each do
       @user = users(:gareth)
@@ -69,6 +111,42 @@ describe StreamsController do
     
     it 'should save a stream to the database' do
       pending 'TODO(gaye): Figure out how to mock out video uploads'
+    end
+  end
+  
+  context 'update is called, stream is found, and current user is publisher' do
+    it 'should update appropriately' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'update is called, stream is found, but current user is not publisher' do
+    it 'should return 401 unauthorized' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'update is called but stream is not found' do
+    it 'should return 404 not found' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'destroy is called, stream is found, and current user is publisher' do
+    it 'should remove stream from database' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'destroy is called, stream is found, but current user is not publisher' do
+    it 'should return 401 unauthorized' do
+      pending 'TODO(gaye)'
+    end
+  end
+  
+  context 'destroy is called but stream is not found' do
+    it 'should return 404 not found' do
+      pending 'TODO(gaye)'
     end
   end
 end

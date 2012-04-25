@@ -28,6 +28,7 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
+    # TODO(gaye): 404 in case that stream isn't found
     @stream = Stream.find(params[:id])
     # TODO(gaye): Lookup whether current user is publisher/subscriber
     
