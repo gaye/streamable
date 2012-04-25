@@ -1,19 +1,49 @@
 $(document).ready ->
   # # # streams/index # # #
-  $('#slider').slider({ step : 1, min: 6, max: 12 })
-  $('#slider').bind("slide", (event, ui) -> $("#grade_badge").html(ui.value))
-  $('.tag_button').live('click', -> toggleButtonPressed(this))
-  $('.tag_button_pressed').live('click', -> toggleButtonPressed(this))
+  setTagFieldsInForm = ->
+    $('input[name=tags]').val(selectedTags.join())
     
   toggleButtonPressed = (element) ->
     $(element).toggleClass('tag_button_pressed')
     $(element).toggleClass('tag_button')
+    
+  addTag = (tag_name) ->
+    selectedTags.push(tag_name)
+    setTagFieldsInForm()
+  
+  removeTag = (tag_name) ->
+    selectedTags.splice(selectedTags.indexOf(tag_name), 1)
+    setTagFieldsInForm()
+    
+  selectedTags = []
+  oldgrade = "6"
+  
+  addTag(oldgrade)
+  
+  $('#slider').slider({ step : 1, min: 6, max: 12 })
+  $('#slider').bind("slide", (event, ui) -> 
+    $("#grade_badge").html(ui.value)
+    removeTag(oldgrade)
+    addTag(ui.value)
+    oldgrade = ui.value
+    )
+    
+  $('.tag_button').live('click', -> 
+    toggleButtonPressed(this)
+    addTag($(this).html().trim())
+    )
+  
+  $('.tag_button_pressed').live('click', -> 
+    toggleButtonPressed(this)
+    removeTag($(this).html().trim())
+    )
   
   # # # streams/new # # #
   stages = [
       '#video_preview',
       '#title',
       '#description',
+      '#tags',
       '#when',
       '#price'
   ]
@@ -22,6 +52,7 @@ $(document).ready ->
       "Let's start with a video preview!",
       "Okay now what do you want to call it?",
       "Can you tell us a bit about it?",
+      "Help people find your stream"
       "When is a good time for you?",
       "How much do you want to charge students?"
   ]
@@ -30,11 +61,13 @@ $(document).ready ->
     "Choose a video that exemplifies the kind of content you'll broadcast.",
     "Pick the name that best describes your show.",
     "A nice, paragraph-long description gives the users better info.",
+    "Use the slider to pick a grade level and select one or more subject categories.",
     "Pick a time when you can be at your computer and you won't have any conflicts.",
     "It's up to you!"
   ]
   
   actions = [
+    '#continue',
     '#continue',
     '#continue',
     '#continue',

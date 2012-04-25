@@ -8,34 +8,36 @@
   margin:25px;
 }
 
-#categories {
-  float: left;
-  margin-left: 10px;
-  width: 900px;
-  #grade_slider {
-    #grade_badge {
-      margin-left: auto;
-      margin-right: auto;
-      width: 40px;
-      @include rounded(40px);
-      text-align: center;
-      padding: 20px;
-      background-color: #43B8E4;
-      font-weight: bold;
+#index {
+  #categories {
+    float: left;
+    margin-left: 10px;
+    width: 900px;  
+    #grade_slider {
+      margin-bottom: 40px;
     }
-    #slider {
-      margin-left: auto;
-      margin-right: auto;    
-      width: 80%;
+    .tag {
+      margin-top: 40px;
+      display: inline;
     }
   }
-  #tags {
+}
+
+#grade_slider {
+  #grade_badge {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40px;
+    @include rounded(40px);
+    text-align: center;
+    padding: 20px;
+    background-color: #43B8E4;
+    font-weight: bold;
+  }
+  #slider {
     margin-left: auto;
     margin-right: auto;    
-    margin-top: 40px;
-    .tag {
-      margin-right: 50px;
-    }
+    width: 80%;
   }
 }
 

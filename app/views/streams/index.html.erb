@@ -1,35 +1,22 @@
-<div id="dashboard">
-  Hello!
-</div>
-<div id="categories">
-  
-  <div id="grade_slider">
-    <div id="grade_badge">
-      6
-    </div>
-    <div class="clearboth"></div>
-    <br />
-    <div id="slider">
-    </div>
+<div id="index">
+  <div id="dashboard">
+    Hello!
   </div>
+  <div id="categories">
+    <div id="grade_slider">
+      <%= render :partial => 'tags', :locals => { :tags => @tags } %>
+    </div>
 
-  <div id="tags">
-    <% @tags.each do |t| %>
-      <span class="tag_button tag">
-        <%= t.name %>
-      </span>
-    <% end %>
-  </div>
-
-  <div id="streams">
-    <% @streams.each_with_index do |s, i| %>
-      <% if i % 2 == 0 %>
-        <div class="preview left">      
-      <% else %>  
-        <div class="preview right">
+    <div id="streams">
+      <% @streams.each_with_index do |s, i| %>
+        <% if i % 2 == 0 %>
+          <div class="preview left">      
+        <% else %>  
+          <div class="preview right">
+        <% end %>
+          <%= render :partial => 'stream_preview', :locals => {:stream => s} %>
+        </div>  
       <% end %>
-        <%= render :partial => 'stream_preview', :locals => {:stream => s} %>
-      </div>  
-    <% end %>
+    </div>
   </div>
 </div>

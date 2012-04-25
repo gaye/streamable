@@ -42,7 +42,7 @@ class StreamsController < ApplicationController
   def new
     # TODO(gaye): Enforce permissions
     @stream = Stream.new
-
+    @tags = Tag.all
     respond_to do |format|
       format.html
       format.json { render :json => @stream }
@@ -66,6 +66,17 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
+    p "params:"
+    puts params[:tags]
+
+    tags = params[:tags].split(",") 
+    p "tags:"
+    puts tags
+    
+    tags.each do |t|
+      tag = Tag.find_by_name(t)
+      @stream.tags << tag if tag
+    end
     
     respond_to do |format|
       if @stream.save

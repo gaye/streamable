@@ -41,6 +41,11 @@
     <%= f.text_field :price %>
   </div>
   
+  <div class="field" id="tags">
+    <%= render :partial => 'tags', :locals => { :tags => @tags } %>
+    <%= f.hidden_field :tags, :name => "tags"%>
+  </div>
+  
   <br /><br />
   
   <div id="continue">

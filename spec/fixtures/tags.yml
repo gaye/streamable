@@ -2,22 +2,50 @@ math:
   id: 1
   name: math
   
-math:
+science:
   id: 2
   name: science
   
-math:
+social science:
   id: 3
   name: social science
 
-math:
+arts:
   id: 4
   name: arts
 
-math:
+literature:
   id: 5
   name: literature
   
-math:
+foreign language:
   id: 6
   name: foreign language                
+  
+grade-6:
+  id: 7
+  name: 6
+
+grade-7:
+  id: 8
+  name: 7  
+  
+grade-8:
+  id: 9
+  name: 8  
+  
+grade-9:
+  id: 10
+  name: 9 
+  
+grade-10:
+  id: 11
+  name: 10  
+  
+grade-11:
+  id: 12
+  name: 11 
+  
+grade-12:
+  id: 13
+  name: 12  

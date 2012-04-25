@@ -1,0 +1,16 @@
+<div id="grade_slider">
+  <% tags.delete_if{ |t| t.name.to_i != 0 }%>
+  <div id="grade_badge">
+    6
+  </div>
+  <div class="clearboth"></div>
+  <br />
+  <div id="slider">
+  </div>
+</div>
+
+<% tags.each do |t| %>
+  <div class="tag_button tag">
+    <%= t.name %>
+  </div>
+<% end %>

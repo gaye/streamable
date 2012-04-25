@@ -1,0 +1,214 @@
+
+---
+users:
+  columns:
+  - id
+  - facebook_uid
+  - first_name
+  - last_name
+  - image_url
+  - token
+  - token_expiration
+  - raw
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 512468194
+    - Armaan
+    - Sarkar
+    - http://graph.facebook.com/512468194/picture?type=square
+    - AAAC73ZAtoHskBAEPjS24PHRowTNEYzzex7dGZCB56I3oDe9y4ArSV7iXkgqJ7CPdfWOFfUkXn1kYEi39gXzNNUgxfx5jDuiajhaZBQUjQZDZD
+    - 1340467724
+    - ! '{"provider":"facebook","uid":"512468194","info":{"nickname":"sarkar.armaan","email":"armaansarkar@hotmail.com","name":"Armaan
+      Sarkar","first_name":"Armaan","last_name":"Sarkar","image":"http://graph.facebook.com/512468194/picture?type=square","urls":{"Facebook":"http://www.facebook.com/sarkar.armaan"},"location":"Middlebury,
+      Vermont"},"credentials":{"token":"AAAC73ZAtoHskBAEPjS24PHRowTNEYzzex7dGZCB56I3oDe9y4ArSV7iXkgqJ7CPdfWOFfUkXn1kYEi39gXzNNUgxfx5jDuiajhaZBQUjQZDZD","expires_at":1340467724,"expires":true},"extra":{"raw_info":{"id":"512468194","name":"Armaan
+      Sarkar","first_name":"Armaan","last_name":"Sarkar","link":"http://www.facebook.com/sarkar.armaan","username":"sarkar.armaan","hometown":{"id":"106517799384578","name":"New
+      Delhi, India"},"location":{"id":"107513719278840","name":"Middlebury, Vermont"},"quotes":"\"I''m
+      saying what I''m telling you I''m saying\" -Aich\n\"My nose is taking over me.
+      i don''t know what to do\" - Tanvi\n\"I have trouble remembering things\" -
+      Zach\n","gender":"male","email":"armaansarkar@hotmail.com","timezone":-4,"locale":"en_GB","languages":[{"id":"106059522759137","name":"English"},{"id":"112969428713061","name":"Hindi"},{"id":"112491588765120","name":"Bengali"}],"verified":true,"updated_time":"2012-04-16T02:52:45+0000"}}}'
+    - '2012-04-25 05:32:25.867220'
+    - '2012-04-25 05:32:25.867220'
+
+---
+streams:
+  columns:
+  - id
+  - publisher_id
+  - title
+  - description
+  - when
+  - price
+  - video_preview_file_name
+  - video_preview_content_type
+  - video_preview_file_size
+  - video_preview_updated_at
+  - opentok_session_id
+  - publisher_token
+  - created_at
+  - updated_at
+  records: 
+  - - 4
+    - 1
+    - Balancing Chemical Equations
+    - During this introductory lesson, students learn the concepts behind balancing
+      chemical equations. I instruct my students to make a list of the atoms on each
+      side of the equation to help them keep track of their progress. As they add
+      coefficients, they increase the numbers for those atoms in their lists. The
+      students can easily see if they have balanced each equation.
+    - '2012-05-07 06:23:00.000000'
+    - 20.0
+    - Movie_on_4-5-12_at_4.24_PM.mov
+    - video/quicktime
+    - 252181
+    - '2012-04-25 06:25:49.138469'
+    - 1_MX4xNDEyODkzMn4xMjcuMC4wLjF-MjAxMi0wNC0yNSAwNjoyNTo0OS4wNDAyMTIrMDA6MDB-MC45MDY1MTk2MjcwMDZ-
+    - T1==cGFydG5lcl9pZD0xNDEyODkzMiZzaWc9OTg0NzUxYTg1ZDk1OWJkOTBkM2M2M2NjNmM1M2RhNDZlMDg3MDc5Yzpyb2xlPW1vZGVyYXRvciZzZXNzaW9uX2lkPTFfTVg0eE5ERXlPRGt6TW40eE1qY3VNQzR3TGpGLU1qQXhNaTB3TkMweU5TQXdOam95TlRvME9TNHdOREF5TVRJck1EQTZNREItTUM0NU1EWTFNVGsyTWpjd01EWi0mY3JlYXRlX3RpbWU9MTMzNTMzNTE0OSZub25jZT0wLjI1MTcwMzg1NTgxNDA3NjUmY29ubmVjdGlvbl9kYXRhPWZhY2Vib29rX3VpZCUzRDUxMjQ2ODE5NA==
+    - '2012-04-25 06:25:49.143373'
+    - '2012-04-25 06:25:49.143373'
+  - - 5
+    - 1
+    - Solving Linear Inequalities
+    - Students extend skills for representing and solving linear equations to linear
+      inequalities. Lesson activities build understanding and skill by plotting ordered
+      pairs of numbers that either satisfy or do not satisfy a given problem situation
+      involving a linear inequality. Students develop skill in using variables and
+      algebraic thinking to write symbolic representations and to construct graphs
+      for linear inequalities.
+    - '2012-05-09 06:27:00.000000'
+    - 15.0
+    - Movie_on_4-5-12_at_4.24_PM.mov
+    - video/quicktime
+    - 252181
+    - '2012-04-25 06:28:50.673302'
+    - 2_MX4xNDEyODkzMn4xMjcuMC4wLjF-MjAxMi0wNC0yNSAwNjoyODo1MC42MTA0MTgrMDA6MDB-MC4xNzE5MjE4NzU5Mzh-
+    - T1==cGFydG5lcl9pZD0xNDEyODkzMiZzaWc9MjEzY2JmY2E1YWFkYzVkNTYwYTJiZjhkMDAxODcxYmZjMzhmNWZiODpyb2xlPW1vZGVyYXRvciZzZXNzaW9uX2lkPTJfTVg0eE5ERXlPRGt6TW40eE1qY3VNQzR3TGpGLU1qQXhNaTB3TkMweU5TQXdOam95T0RvMU1DNDJNVEEwTVRnck1EQTZNREItTUM0eE56RTVNakU0TnpVNU16aC0mY3JlYXRlX3RpbWU9MTMzNTMzNTMzMCZub25jZT0wLjUxNjA1MDUzNDczODI0MzgmY29ubmVjdGlvbl9kYXRhPWZhY2Vib29rX3VpZCUzRDUxMjQ2ODE5NA==
+    - '2012-04-25 06:28:50.678645'
+    - '2012-04-25 06:28:50.678645'
+  - - 6
+    - 1
+    - French Poetry
+    - ! 'In this section, I am going to read classical French poems twice: once slowly
+      - so you can repeat after me - and once faster, with my own interpretation of
+      the poem. I will also sometimes tell you about the author, or explain the vocabulary
+      or the meaning of the poem, all in easy everyday French.'
+    - '2012-05-06 06:28:00.000000'
+    - 20.0
+    - Movie_on_4-5-12_at_4.24_PM.mov
+    - video/quicktime
+    - 252181
+    - '2012-04-25 06:31:07.957083'
+    - 1_MX4xNDEyODkzMn4xMjcuMC4wLjF-MjAxMi0wNC0yNSAwNjozMTowNy44OTI0NzIrMDA6MDB-MC42NDE1NTM4MjE3NDh-
+    - T1==cGFydG5lcl9pZD0xNDEyODkzMiZzaWc9MDg0OTYyYzYyZmYzNzhmNDhhOWI2OTAzNGZlZmYwYTEyNzgyNTZhNDpyb2xlPW1vZGVyYXRvciZzZXNzaW9uX2lkPTFfTVg0eE5ERXlPRGt6TW40eE1qY3VNQzR3TGpGLU1qQXhNaTB3TkMweU5TQXdOam96TVRvd055NDRPVEkwTnpJck1EQTZNREItTUM0Mk5ERTFOVE00TWpFM05EaC0mY3JlYXRlX3RpbWU9MTMzNTMzNTQ2NyZub25jZT0wLjA1NjcwNzE1MDQ5OTIxMTcxJmNvbm5lY3Rpb25fZGF0YT1mYWNlYm9va191aWQlM0Q1MTI0NjgxOTQ=
+    - '2012-04-25 06:31:07.963209'
+    - '2012-04-25 06:31:07.963209'
+  - - 7
+    - 1
+    - The Civil War
+    - ! 'The Civil War era is one of the most critical and fascinating in our nation''s
+      history. The many books about this period written for young audiences provide
+      a rich context in which to learn about the Civil War itself and to explore more
+      basic issues about the nature of human life and society. '
+    - '2012-05-08 06:33:00.000000'
+    - 20.0
+    - Movie_on_4-5-12_at_4.24_PM.mov
+    - video/quicktime
+    - 252181
+    - '2012-04-25 06:35:11.799340'
+    - 1_MX4xNDEyODkzMn4xMjcuMC4wLjF-MjAxMi0wNC0yNSAwNjozNToxMS42ODI5NTArMDA6MDB-MC45MTY0OTc2Nzc4NDd-
+    - T1==cGFydG5lcl9pZD0xNDEyODkzMiZzaWc9ZGYxMWNjNDZhOTZlODgwYjRjNzEyYTc3M2Y5NzAxNGRhMzA2YmYwMDpyb2xlPW1vZGVyYXRvciZzZXNzaW9uX2lkPTFfTVg0eE5ERXlPRGt6TW40eE1qY3VNQzR3TGpGLU1qQXhNaTB3TkMweU5TQXdOam96TlRveE1TNDJPREk1TlRBck1EQTZNREItTUM0NU1UWTBPVGMyTnpjNE5EZC0mY3JlYXRlX3RpbWU9MTMzNTMzNTcxMSZub25jZT0wLjA3MDc3NjkyNzIwOTIyNTAyJmNvbm5lY3Rpb25fZGF0YT1mYWNlYm9va191aWQlM0Q1MTI0NjgxOTQ=
+    - '2012-04-25 06:35:11.805663'
+    - '2012-04-25 06:35:11.805663'
+
+---
+tags:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - math
+    - '2012-04-25 05:17:26.566070'
+    - '2012-04-25 05:17:26.566070'
+  - - 2
+    - science
+    - '2012-04-25 05:17:30.263668'
+    - '2012-04-25 05:17:30.263668'
+  - - 3
+    - social studies
+    - '2012-04-25 05:17:33.839078'
+    - '2012-04-25 05:20:03.406029'
+  - - 4
+    - arts
+    - '2012-04-25 05:17:40.278650'
+    - '2012-04-25 05:17:40.278650'
+  - - 5
+    - literature
+    - '2012-04-25 05:17:44.454992'
+    - '2012-04-25 05:17:44.454992'
+  - - 6
+    - foreign language
+    - '2012-04-25 05:17:51.223001'
+    - '2012-04-25 05:17:51.223001'
+  - - 7
+    - '6'
+    - '2012-04-25 05:20:11.827827'
+    - '2012-04-25 05:20:11.827827'
+  - - 8
+    - '7'
+    - '2012-04-25 05:20:14.098228'
+    - '2012-04-25 05:20:14.098228'
+  - - 9
+    - '8'
+    - '2012-04-25 05:20:16.267749'
+    - '2012-04-25 05:20:16.267749'
+  - - 10
+    - '9'
+    - '2012-04-25 05:20:18.811362'
+    - '2012-04-25 05:20:18.811362'
+  - - 11
+    - '10'
+    - '2012-04-25 05:20:20.929930'
+    - '2012-04-25 05:20:20.929930'
+  - - 12
+    - '11'
+    - '2012-04-25 05:20:22.762649'
+    - '2012-04-25 05:20:22.762649'
+  - - 13
+    - '12'
+    - '2012-04-25 05:20:24.874214'
+    - '2012-04-25 05:20:24.874214'
+
+---
+streams_tags:
+  columns:
+  - stream_id
+  - tag_id
+  records: 
+  - - 1
+    - 12
+  - - 2
+    - 10
+  - - 3
+    - 11
+  - - 4
+    - 8
+  - - 4
+    - 2
+  - - 5
+    - 9
+  - - 5
+    - 1
+  - - 6
+    - 8
+  - - 6
+    - 5
+  - - 6
+    - 6
+  - - 7
+    - 9
+  - - 7
+    - 3
