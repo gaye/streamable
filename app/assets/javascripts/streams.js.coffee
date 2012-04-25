@@ -1,8 +1,8 @@
 $(document).ready ->
-  # # # streams/index # # #
+  ##### streams/index #####
   $('#slider').slider({ step : 1, min: 6, max: 12 })
   
-  # # # streams/new # # #
+  ##### streams/new #####
   stages = [
       '#video_preview',
       '#title',
