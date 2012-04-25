@@ -9,11 +9,7 @@
 
     <div id="streams">
       <% @streams.each_with_index do |s, i| %>
-        <% if i % 2 == 0 %>
-          <div class="preview left">      
-        <% else %>  
-          <div class="preview right">
-        <% end %>
+        <div class="preview <%=  i % 2 == 0 ? "left" : "right"%>">     
           <%= render :partial => 'stream_preview', :locals => {:stream => s} %>
         </div>  
       <% end %>

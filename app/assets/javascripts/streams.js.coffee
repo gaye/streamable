@@ -15,28 +15,41 @@ $(document).ready ->
     selectedTags.splice(selectedTags.indexOf(tag_name), 1)
     setTagFieldsInForm()
     
+  disableGrade = (disable) ->
+    $('#slider').slider("option", "disabled", disable)
+    if (disable)
+      $('#grade_badge').css('background-color', 'grey')
+      removeTag(current_grade)
+      # $('#grade_enable').html("Add a Grade")
+    else
+      $('#grade_badge').css('background-color', 'blue')
+      addTag(current_grade)
+      # $('#grade_enable').html("Don't add a Grade")
+      
+  getGrade = (value)->
+    grade =  if value is 5 then "" else value
+    grade
+    
   selectedTags = []
-  oldgrade = "6"
+  current_grade = ""
   
-  addTag(oldgrade)
-  
-  $('#slider').slider({ step : 1, min: 6, max: 12 })
+  $('#slider').slider({ step : 1, min: 5, max: 12 })
   $('#slider').bind("slide", (event, ui) -> 
-    $("#grade_badge").html(ui.value)
-    removeTag(oldgrade)
-    addTag(ui.value)
-    oldgrade = ui.value
-    )
+    $("#grade_badge").html(getGrade(ui.value))
+    removeTag(current_grade)
+    addTag(getGrade(ui.value))
+    current_grade = getGrade(ui.value)
+  )
     
   $('.tag_button').live('click', -> 
     toggleButtonPressed(this)
     addTag($(this).html().trim())
-    )
+  )
   
   $('.tag_button_pressed').live('click', -> 
     toggleButtonPressed(this)
     removeTag($(this).html().trim())
-    )
+  )
   
   # # # streams/new # # #
   stages = [
