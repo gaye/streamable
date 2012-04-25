@@ -1,17 +1,18 @@
-<div id="dashboard">
-  Hello!
-</div>
-<div id="streamlist">
-  <table id="positions">
-    <tr>
-      <% 6.upto(12) do |i| %>
-        <td>
-          <%= i %>
-        </td>
+<div id="index">
+  <div id="dashboard">
+    Hello!
+  </div>
+  <div id="categories">
+    <div id="grade_slider">
+      <%= render :partial => 'tags', :locals => { :tags => @tags } %>
+    </div>
+
+    <div id="streams">
+      <% @streams.each_with_index do |s, i| %>
+        <div class="preview <%= i % 2 == 0 ? "left" : "right" %>">
+          <%= render :partial => 'stream_preview', :locals => {:stream => s} %>
+        </div>  
       <% end %>
-    </tr>
-  </table>
-  <br />
-  <div id="slider">
+    </div>
   </div>
 </div>

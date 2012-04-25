@@ -1,0 +1,18 @@
+<div class="preview_image">
+  <div class="image">
+    <%= image_tag stream.publisher.image_url %>
+    <!-- TODO (armaansarkar): video thumbnail -->
+  </div>
+  <div class="preview_description">
+    <%= stream.description %>
+  </div>
+</div>
+<div class="preview_title">
+  <%= link_to stream.title, stream %>
+</div>
+<div class="preview_publisher">
+  <%= link_to stream.publisher.first_name + " "  + stream.publisher.last_name, stream.publisher %>    
+</div>
+<div class="preview_time">
+  <%= format_time(stream.when) %>    
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422051410) do
+ActiveRecord::Schema.define(:version => 20120425025618) do
 
   create_table "streams", :force => true do |t|
     t.integer  "publisher_id"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(:version => 20120422051410) do
   end
 
   add_index "streams", ["publisher_id"], :name => "index_streams_on_publisher_id"
+
+  create_table "streams_tags", :id => false, :force => true do |t|
+    t.integer "stream_id"
+    t.integer "tag_id"
+  end
 
   create_table "subscriptions", :force => true do |t|
     t.integer  "subscriber_id"

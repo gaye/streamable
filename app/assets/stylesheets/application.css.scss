@@ -11,13 +11,20 @@
 //  *= require_self
 //  *= require_tree .
 // */
+@import "mixins.css.scss";
+
 body {
+  
   #header {
     background-color: rgba(0, 0, 0, 0.66);
     height: 70px;
   
     #logo {
       padding: 10px;
-    }
+    } 
+  }
+  
+  .clearboth {
+    clear: both;
   }
 }

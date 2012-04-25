@@ -18,7 +18,7 @@ class StreamsController < ApplicationController
     else
       @streams = Stream.all
     end
-    
+    @tags = Tag.all    
     respond_to do |format|
       format.html
       format.json { render :json => @streams }
@@ -28,7 +28,6 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
-    # TODO(gaye): 404 in case that stream isn't found
     @stream = Stream.find(params[:id])
     # TODO(gaye): Lookup whether current user is publisher/subscriber
     
@@ -40,7 +39,6 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/broadcast
   def broadcast
-    # TODO(gaye): Enforce permissions
     @stream = Stream.find(params[:id])
     if @stream.publisher == current_user
       @token = @stream.publisher_token
@@ -59,7 +57,8 @@ class StreamsController < ApplicationController
   def new
     # TODO(gaye): Enforce permissions
     @stream = Stream.new
-
+    @tags = Tag.all
+    
     respond_to do |format|
       format.html
       format.json { render :json => @stream }
@@ -83,6 +82,12 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
+
+    tags = params[:tags].split(",")     
+    tags.each do |t|
+      tag = Tag.find_by_name(t)
+      @stream.tags << tag if tag
+    end
     
     respond_to do |format|
       if @stream.save
@@ -123,5 +128,9 @@ class StreamsController < ApplicationController
       format.html { redirect_to streams_url }
       format.json { head :no_content }
     end
+  end
+  
+  # capture notifications from the Zencoder service about video encoding
+  def encode_notify
   end
 end

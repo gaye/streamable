@@ -1,3 +1,5 @@
+@import "mixins.css.scss";
+
 /* streams/index */
 #dashboard {
   border:1px solid black;
@@ -6,24 +8,107 @@
   margin:25px;
 }
 
-#streamlist {
-  position: absolute;
-  left: 500px;
-  float: left;
-  
-  
-  #slider {
-    width: 700px;
-  }
-  
-  #positions {
-    position: relative;
-    left: -4px;
-    width: 115.6%;
-    td {
-      width: 14.28%;
+#index {
+  #categories {
+    float: left;
+    margin-left: 10px;
+    width: 900px;  
+    
+    #grade_slider {
+      margin-bottom: 40px;
+    }
+    
+    .tag {
+      margin-top: 40px;
+      display: inline;
     }
   }
+}
+
+#grade_slider {
+  #grade_badge {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40px;
+    height: 30px;
+    @include rounded(40px);
+    text-align: center;
+    padding: 20px;
+    background-color: #43B8E4;
+    font-weight: bold;
+  }
+  
+  #slider {
+    margin-left: auto;
+    margin-right: auto;    
+    width: 80%;
+  }
+}
+
+#streams {
+  margin-top: 50px;
+  margin-left: 100px; 
+  
+  .preview {
+    position: relative;
+    float: left;
+    width: 300px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+    .preview_image {
+      height: 150px;
+      border: solid grey 1px;
+      &:hover {
+        .preview_description { display: block }
+      }
+    }
+    
+    .preview_description {
+      color: black;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 298px;
+      height: 150px;
+      background-color: rgba(67,184,228, 0.5);
+      display: none;
+    }
+    
+    .preview_title {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    
+    .preview_publisher {
+      display: inline;
+      margin-right: 80px;
+    }
+    
+    .preview_time {
+      display: inline;
+    }
+  }
+}
+
+.tag_button {
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px 30px;
+  background-color: grey;
+  @include rounded();
+  @include shadow(2px 2px 8px rgba(0,0,0,0.2))
+}
+
+.tag_button_pressed {
+  color: white;
+  cursor: pointer;  
+  margin: 10px;
+  padding: 10px 30px;
+  background-color: #43B8E4;
+  @include rounded();
+  @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2))
 }
 
 /* streams/new */
