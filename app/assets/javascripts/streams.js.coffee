@@ -13,7 +13,7 @@ $(document).ready ->
   
   instructions = [
       "Let's start with a video preview!",
-      "Okay now what do you want to call it?",
+      "Great! Now what do you want to call it?",
       "Can you tell us a bit about it?",
       "When is a good time for you?",
       "How much do you want to charge students?"

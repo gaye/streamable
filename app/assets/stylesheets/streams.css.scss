@@ -27,6 +27,14 @@
 }
 
 /* streams/new */
+#new_stream {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
 #instruction {
   text-align: center;
 }
@@ -52,8 +60,14 @@
   /* @include rounded(); */
 }
 
+#continue:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
 #submit {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
 }
+
