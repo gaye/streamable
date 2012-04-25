@@ -40,6 +40,7 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/broadcast
   def broadcast
+    # TODO(gaye): Enforce permissions
     @stream = Stream.find(params[:id])
     if @stream.publisher == current_user
       @token = @stream.publisher_token
