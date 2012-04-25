@@ -82,7 +82,8 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
-    
+
+    tags = params[:tags].split(",")     
     tags.each do |t|
       tag = Tag.find_by_name(t)
       @stream.tags << tag if tag
@@ -127,5 +128,9 @@ class StreamsController < ApplicationController
       format.html { redirect_to streams_url }
       format.json { head :no_content }
     end
+  end
+  
+  # capture notifications from the Zencoder service about video encoding
+  def encode_notify
   end
 end

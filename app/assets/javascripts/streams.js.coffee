@@ -40,7 +40,7 @@ $(document).ready ->
     removeTag($(this).html().trim())
   )
   
-  # # # streams/new # # #
+  ##### streams/new #####
   stages = [
       '#video_preview',
       '#title',
