@@ -2,41 +2,44 @@
 <html>
 <head>
   <title>Streamable</title>
+  <%= stylesheet_link_tag     "application", :media => "all" %>
   <%= stylesheet_link_tag     "home" %>
   <%= javascript_include_tag  "home" %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-<div id="landing">
-  <div id="header">
-    <div id="logo">
-      <%= link_to image_tag('streamable.png'), streams_path %>
-    </div>
-  </div>
-     
-  <div id="container">
-    <div id="instructions">
-      <div id="big">
-        Education's Live Video Marketplace.
+  <div id="landing">
+    <div id="header">
+      <div id="logo">
+        <%= link_to image_tag('streamable.png'), streams_path %>
       </div>
-
-      Want to learn how to play the viola? 
-      Need help balancing an equation?
-      Ever wondered how to juggle? 
-      <span class="pitch">We've got it all.</span>
-      <br /><br />
-
-      Have something to teach? 
-      Can you do it over live video?
-      <span class="pitch">Perfect.</span>
-      <br /><br />
     </div>
+     
+    <div id="home_container">
+      <div id="instructions">
+        <div id="big">
+          Education's Live Video Marketplace.
+        </div>
+
+        Want to learn how to play the viola? 
+        Need help balancing an equation?
+        Ever wondered how to juggle? 
+        <span class="pitch">We've got it all.</span>
+        <br /><br />
+
+        Have something to teach? 
+        Can you do it over live video?
+        <span class="pitch">Perfect.</span>
+        <br /><br />
+      </div>
     
-    <%= link_to 'Sign up with Facebook', '/auth/facebook', :id => "signup" %>
-    <%= link_to '...or check it out first!', streams_path, :id => "checkit" %>   
-    <div style="clear:both" />
+      <%= link_to 'Sign up with Facebook', '/auth/facebook', :id => "signup" %>
+      <%= link_to '...or check it out first!', streams_path, :id => "checkit" %>   
+      <div style="clear:both" />
+    </div>
+  
+    <%= yield %>
   </div>
-</div>
 </body>
 </html>
