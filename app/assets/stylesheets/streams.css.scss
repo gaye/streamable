@@ -2,10 +2,10 @@
 
 /* streams/index */
 #dashboard {
-  border:1px solid black;
-  float:left;
-  width:300px;
-  margin:25px;
+  border: 1px solid black;
+  float: left;
+  width: 300px;
+  margin: 25px;
 }
 
 #index {
@@ -113,29 +113,28 @@
 
 /* streams/new */
 #form_container {
-  margin-top: 50px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.66);
+  @include rounded();
+  background-color: #F0F0F0;
   width: 700px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
+  padding: 20px;
 }
 
 #instruction {
   text-align: center;
-  color: #fbe149;
+  color: #113D52;
 }
 
 #explanation {
   text-align: center;
-  color: white;
 }
 
 .field {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
-  color: white;
 }
 
 #continue {
@@ -146,10 +145,11 @@
   padding: 3px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.66);
-  /* @include rounded(); */
+  @include rounded();
 }
 
 #continue:hover {
+  background-color: light yellow;
   cursor: hand;
   cursor: pointer;
 }
@@ -158,4 +158,36 @@
   margin-left: auto;
   margin-right: auto;
   width: 200px;
+}
+
+/* streams/show */
+#stream {
+  @include rounded();
+  background-color: #F0F0F0;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px;
+  
+  #video_preview {
+    /* margin: 0 auto; */
+    width: 450px;
+  }
+  
+  #description {
+    width: 450px;
+    margin-left: 200px;
+    margin-top: 0px;
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+#comments {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 83px;
+  float: left;
+  width: 700px;
 }
