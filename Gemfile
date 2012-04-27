@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 2.7'
 gem 'rails', '3.2.3'
+gem 'thin'
 
 # allows us to move data from the db to a yaml file and back
 # rake db:data:dump   ->   Dump contents of Rails database to db/data.yml
@@ -18,8 +19,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
-  # gem 'therubyracer'
-  # gem 'thin'
+  gem 'therubyracer'
 end
 
 group :production do
