@@ -57,6 +57,11 @@ GEM
       execjs
     coffee-script-source (1.3.1)
     daemons (1.1.8)
+    delayed_job (3.0.2)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.3.2)
+      activerecord (> 2.1.0)
+      delayed_job (~> 3.0.0)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -105,6 +110,7 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -180,10 +186,12 @@ DEPENDENCIES
   aws-sdk
   ci_reporter
   coffee-rails (~> 3.2.1)
+  delayed_job_active_record
   jquery-rails
   json
   omniauth-facebook
   paperclip (~> 2.7)
+  pg
   rails (= 3.2.3)
   rspec
   rspec-rails
