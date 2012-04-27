@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'ci_reporter'
+gem 'delayed_job_active_record'
 gem 'json'
 gem 'jquery-rails'
 gem 'omniauth-facebook'
@@ -16,9 +17,9 @@ gem 'thin'
 gem 'yaml_db', :git => 'git://github.com/lostapathy/yaml_db.git'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'sqlite3'
   gem 'therubyracer'
 end
 
