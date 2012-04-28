@@ -1,4 +1,11 @@
+<!--
+  Renders a stream
+  Author : Gareth Aye (gareth@streamable.tv)
+  Date : 04/21/12
+-->
+
 <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js#xfbml=1" %>
+
 <div id="stream">
   <table id="streamtable">
     <tr>
@@ -31,7 +38,9 @@
   
     <tr>
       <td>
-        with <%= link_to "#{@stream.publisher.first_name} #{@stream.publisher.last_name}", @stream.publisher %> 
+        with <%= link_to( 
+                 "#{@stream.publisher.first_name} #{@stream.publisher.last_name}", 
+                 @stream.publisher) %>
         at <%= format_time(@stream.when) %>
       </td>
     </tr>
