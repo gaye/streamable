@@ -28,6 +28,14 @@ class Stream < ActiveRecord::Base
                         :opentok_session_id,
                         :publisher_token
   
+  before_video_preview_post_process do |stream|
+    !stream.video_preview_changed?
+  end
+  
+  after_save do |stream|
+    Delayed::Job.enqueue(SendToAmazonJob.new(stream.id)) if stream.video_preview_changed?
+  end
+  
   # TODO(gaye): If possible, replace this with a has_many :through
   def subscribers
     subscriptions.map(&:user)
@@ -35,5 +43,12 @@ class Stream < ActiveRecord::Base
   
   def subscribed?(user)
     subscribers.include?(user)
+  end
+  
+  def video_preview_changed?
+    self.video_preview_file_size_changed? || 
+    self.video_preview_file_name_changed? ||
+    self.video_preview_content_type_changed? || 
+    self.video_preview_updated_at_changed?
   end
 end
