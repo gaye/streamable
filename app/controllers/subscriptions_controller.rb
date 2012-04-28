@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions.json
   def create
     @user = User.find(current_user.id)
-    @stream = Stream.find(params[:stream_id])
+    @stream = Stream.find(params[:subscription][:stream_id])
     @token = OpenTokHelper::generate_subscriber_token(@user, @stream.opentok_session_id)
     @subscription = Subscription.new(
         :stream_id => @stream.id, 

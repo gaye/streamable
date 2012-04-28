@@ -1,39 +1,44 @@
 <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js#xfbml=1" %>
+<div id="stream">
+  <table id="streamtable">
+    <tr>
+      <td>
+        <h2>
+          <%= @stream.title %> 
+        </h2>
+      </td>
+    </tr>
 
-<table id="stream">
-  <tr>
-    <td>
-      <h2>
-        <%= @stream.title %> 
-      </h2>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <div id="video_preview">
-        <video src=<%= "#{@stream.video_preview.url}" %>  controls>
-          Couldn't display video!
-        </video>
-      </div>
-    </td>
+    <tr>
+      <td>
+        <div id="video_preview">
+          <video src=<%= "#{@stream.video_preview.url}" %>  controls>
+            Couldn't display video!
+          </video>
+        </div>
+      </td>
     
-    <td>
-      <div id="description">
-        <%= @stream.description %>
-      </div>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      with <%= link_to "#{@stream.publisher.first_name} #{@stream.publisher.last_name}", @stream.publisher %> 
-      at <%= format_time(@stream.when) %>
-    </td>
-  </tr>
-</table>
+      <td>
+        <div id="description">
+          <%= @stream.description %>
+          
+          <br /><br /><br /><br />
 
-<div id="comments">
-  <div id="fb-root"></div>
-  <fb:comments href=<%= request.url %> width="700px"></fb:comments>
+          <%= render 'subscriptions/form' %>
+        </div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        with <%= link_to "#{@stream.publisher.first_name} #{@stream.publisher.last_name}", @stream.publisher %> 
+        at <%= format_time(@stream.when) %>
+      </td>
+    </tr>
+  </table>
+
+  <div id="comments">
+    <div id="fb-root"></div>
+    <fb:comments href=<%= request.url %> width="700px"></fb:comments>
+  </div>
 </div>

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20120425025618) do
     t.integer  "stream_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "subscriber_token"
+    t.text     "subscriber_token"
   end
 
   create_table "tags", :force => true do |t|
