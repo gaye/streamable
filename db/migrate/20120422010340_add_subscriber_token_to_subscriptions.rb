@@ -1,6 +1,6 @@
 class AddSubscriberTokenToSubscriptions < ActiveRecord::Migration
   def up
-    add_column :subscriptions, :subscriber_token, :string
+    add_column :subscriptions, :subscriber_token, :text
   end
   
   def down
