@@ -16,28 +16,42 @@ $(document).ready ->
     setTagFieldsInForm()
       
   getGrade = (value) ->
+    value = Math.floor(value + 0.5)
     if value is 5 then '' else value
     
+  updateStreams = ->
+    $.get('streams/index', { tags : selectedTags }, (data, status, xhr) -> 
+      $('#streams').fadeOut('fast', -> 
+        $('#streams').html($('#streams', $(data)).html())      
+        $('#streams').fadeIn('slow')
+      )
+    )
+
   selectedTags = []
   currentGrade = ''
   
-  $('#slider').slider({ step : 1, min : 5, max : 12 })
+  $('#slider').slider({min : 5, max : 12, step : 0.01})
   $('#slider').bind('slide', (event, ui) -> 
     newGrade = getGrade(ui.value)
-    $('#grade_badge').html(newGrade)
-    removeTag(currentGrade)
-    addTag(newGrade)
-    currentGrade = newGrade
+    if (newGrade isnt currentGrade)
+      $('#grade_badge').html(newGrade)
+      removeTag(currentGrade)
+      if (newGrade isnt '')
+        addTag(newGrade)
+      currentGrade = newGrade
+      updateStreams()
   )
     
   $('.tag_button').live('click', -> 
     toggleButtonPressed(this)
     addTag($(this).html().trim())
+    updateStreams()
   )
   
   $('.tag_button_pressed').live('click', -> 
     toggleButtonPressed(this)
     removeTag($(this).html().trim())
+    updateStreams()    
   )
   
   ##### streams/new #####

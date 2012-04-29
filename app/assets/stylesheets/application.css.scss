@@ -14,10 +14,12 @@
 @import "mixins.css.scss";
 
 body { 
+  font-family: $font-body;
   #header {
     background-color: #113D52;
     height: 70px;
-  
+    @include shadow(2px 2px 8px rgba(0,0,0,0.2));
+    
     #logo {
       img {
         margin-top: 15px;
@@ -64,9 +66,5 @@ body {
   		  padding-right: 10px;
   		}
     }
-  }
-  
-  .clearboth {
-    clear: both;
   }
 }

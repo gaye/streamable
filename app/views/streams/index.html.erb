@@ -1,9 +1,13 @@
 <div id="index">
   <div id="dashboard">
-    Hello!
+    
   </div>
-  <div id="categories">
-    <div id="grade_slider">
+  <div id="content">
+    <div id="message">
+      <div id="main"> Find an awesome class to take. </div>
+      <div id="sub"> Browse by grade level, subject area or both! </div>
+    </div>
+    <div id="categories">
       <%= render :partial => 'tags', :locals => { :tags => @tags } %>
     </div>
 

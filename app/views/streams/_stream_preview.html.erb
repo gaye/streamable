@@ -1,11 +1,9 @@
 <div class="preview_image">
   <div class="image">
-    <%= image_tag stream.publisher.image_url %>
+    <%= image_tag 'placeholder.jpeg' %>
     <!-- TODO (armaansarkar): video thumbnail -->
   </div>
-  <div class="preview_description">
-    <%= stream.description %>
-  </div>
+  <%= link_to truncate_to_words(stream.description, 250), stream, :class => "preview_description" %>
 </div>
 <div class="preview_title">
   <%= link_to stream.title, stream %>
