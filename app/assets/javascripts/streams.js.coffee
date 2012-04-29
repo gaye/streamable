@@ -1,5 +1,5 @@
 $(document).ready ->
-  # # # streams/index # # #
+  ##### streams/index #####
   setTagFieldsInForm = ->
     $('input[name=tags]').val(selectedTags.join())
     
@@ -55,6 +55,8 @@ $(document).ready ->
   )
   
   ##### streams/new #####
+  # TODO(gaye): Move this from parallel arrays to full-fleged objects...
+  
   stages = [
       '#video_preview',
       '#title',
@@ -113,3 +115,7 @@ $(document).ready ->
   # Set the initial instruction and explanation
   $('#instruction').text(instructions[stage])
   $('#explanation').text(explanations[stage])
+  
+  ##### streams/show #####
+  $('#subscribe').click ->
+    $('#new_subscription').submit()

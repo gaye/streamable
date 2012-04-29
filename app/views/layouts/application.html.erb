@@ -2,17 +2,34 @@
 <html>
 <head>
   <title>Streamable</title>
-  <%= stylesheet_link_tag     "application", :media => "all" %>
-  <%= stylesheet_link_tag     "jquery-ui-1.8.19.custom.css" %>
-  <%= javascript_include_tag  "application" %>
+  <%= stylesheet_link_tag     'application', :media => 'all' %>
+  <%= stylesheet_link_tag     'jquery-ui-1.8.19.custom.css' %>
+  <%= javascript_include_tag  'application' %>
   <%= csrf_meta_tags %>
+
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <meta property="fb:app_id" content="206560469458633">
 </head>
 <body>
   <div id="header">
-    <div id="logo">
+    <span id="logo">
       <%= link_to image_tag('streamable.png'), streams_path %>
+    </span>
+    
+    <div id="user_panel">
+      <% if user_logged_in? %>
+        <span id="account">
+          <%= link_to image_tag(current_user.image_url), user_path(current_user) %>
+          <%= link_to format_name(current_user), user_path(current_user) %>
+        </span>
+        
+        <span id="sign_out">
+          <%= link_to 'Sign Out', users_logout_path %>
+        </span>
+      <% else %>
+        <%= render 'users/login' %>
+      <% end %>
     </div>
   </div>
 

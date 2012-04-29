@@ -28,4 +28,3 @@ end
 
 require 'OpenTok/Exceptions'
 require 'OpenTok/OpenTokSDK'
-

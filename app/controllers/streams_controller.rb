@@ -24,6 +24,7 @@ class StreamsController < ApplicationController
   # GET /streams/1.json
   def show
     @stream = Stream.find(params[:id])
+    @subscription = Subscription.new
     # TODO(gaye): Lookup whether current user is publisher/subscriber
     
     respond_to do |format|

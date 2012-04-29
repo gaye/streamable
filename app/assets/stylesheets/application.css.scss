@@ -22,6 +22,46 @@ body {
     
     #logo {
       padding: 10px;
-    } 
+    }
+    
+    #user_panel {
+      margin-top: 10px;
+      margin-right: 20px;
+      float: right;
+      font-size: 20px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      
+      #signup {
+  		  background: url('facebook.png');
+  		  background-repeat: no-repeat;
+  		  height: 50px;
+  		  width: 252px;
+  		  display: block;
+  		  margin-left: auto;
+  		  margin-right: auto;
+  		  padding-top: 10px;
+  		  padding-left: 55px;
+  		  &:hover {
+  		    cursor: hand;
+          cursor: pointer;
+  		  }
+  		}
+  		
+  		#account {
+  		  padding-top: 35px;
+  		  padding-left: 10px;
+  		  padding-right: 10px;
+  		}
+  		
+  		#sign_out {
+  		  vertical-align: middle;
+  		  padding-top: 35px;
+  		  padding-left: 10px;
+  		  padding-right: 10px;
+  		}
+    }
   }
 }

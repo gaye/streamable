@@ -113,6 +113,7 @@
       &:hover {
         .preview_description { display: block }
       }
+<<<<<<< HEAD
       a.preview_description {
         text-decoration: none;
         padding: 20px;
@@ -126,6 +127,19 @@
         display: none;
         line-height: 150%;
       }
+=======
+    }
+    
+    .preview_description {
+      color: black;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 298px;
+      height: 150px;
+      background-color: rgba(67, 184, 228, 0.5);
+      display: none;
+>>>>>>> 6e28a2cc1337198f6b07ecae1fe92ca5882a18f2
     }
     
     .preview_title {
@@ -168,7 +182,7 @@
   padding: 10px 30px;
   background-color: #113D52;
   @include rounded();
-  @include shadow(2px 2px 8px rgba(0,0,0,0.2))
+  @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2))
 }
 
 .tag_button_pressed {
@@ -178,17 +192,17 @@
   padding: 10px 30px;
   background-color: #43B8E4;
   @include rounded();
-  @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2))
+  @include shadow(inset 4px 4px 12px rgba(0, 0, 0, 0.2))
 }
 
 /* streams/new */
 #form_container {
-  margin-top: 50px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.66);
+  @include rounded();
+  background-color: #F0F0F0;
   width: 700px;
   margin-left: auto;
   margin-right: auto;
+<<<<<<< HEAD
   #tag_buttons {
     margin-right: auto;
     margin-left: auto;  
@@ -197,24 +211,32 @@
   .tick {
     margin-left: 12%;
   }
+=======
+  margin-top: 50px;
+  padding: 20px;
+  @include shadow(8px 8px 12px rgba(0, 0, 0, 0.4))
+>>>>>>> 6e28a2cc1337198f6b07ecae1fe92ca5882a18f2
 }
 
 #instruction {
   text-align: center;
-  color: #fbe149;
+  color: #113D52;
 }
 
 #explanation {
   text-align: center;
-  color: white;
 }
 
 .field {
   margin-left: auto;
   margin-right: auto;
+<<<<<<< HEAD
   text-align: center;
   width: 100%;
   color: white;
+=======
+  width: 200px;
+>>>>>>> 6e28a2cc1337198f6b07ecae1fe92ca5882a18f2
 }
 
 #continue {
@@ -225,7 +247,7 @@
   padding: 3px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.66);
-  /* @include rounded(); */
+  @include rounded();
 }
 
 #continue:hover {
@@ -238,3 +260,53 @@
   margin-right: auto;
   width: 200px;
 }
+
+/* streams/show */
+#stream {
+  @include rounded();
+  background-color: #F0F0F0;
+  width: 1200px;
+  height: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  
+  #streamtable {
+    #video_preview {
+      /* margin: 0 auto; */
+      width: 450px;
+    }
+  
+    #description {
+      width: 450px;
+      margin-left: 200px;
+      margin-top: 0px;
+      padding: 10px;
+      text-align: left;
+      
+      #subscribe {
+        text-align: center;
+        width: 200px;
+        padding: 3px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.66);
+        @include rounded();
+      }
+    }
+    
+    #subscribe:hover {
+      cursor: hand;
+      cursor: pointer;
+    }
+  }
+  
+  #comments {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+    width: 700px;
+  }
+}
+

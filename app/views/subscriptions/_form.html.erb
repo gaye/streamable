@@ -1,0 +1,21 @@
+<%= form_for(@subscription) do |f| %>
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subscription.errors.count, 'error') %> prohibited this stream from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="fields">
+    <%= f.hidden_field :stream_id, :value => @stream.id %>
+  </div>
+  
+  <div class="actions" id="subscribe">
+    See it live!
+  </div>
+<% end %>
