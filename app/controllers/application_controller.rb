@@ -4,6 +4,7 @@
 =end
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   helper_method :logout, :current_user, :user_logged_in?
   
@@ -23,5 +24,15 @@ class ApplicationController < ActionController::Base
   
   def user_logged_in?
     !current_user.nil?
+  end
+  
+  private
+  
+  def not_found
+    render :file => 'public/404', :status => :not_found
+  end
+  
+  def unauthorized
+    render :file => 'public/401', :status => :unauthorized
   end
 end
