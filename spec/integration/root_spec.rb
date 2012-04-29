@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+=begin
+  Author : Gareth Aye (gareth@streamable.tv)
+  Date : 04/29/12
+=end
 describe 'landing page' do
   GREETING = 'Education\'s Live Video Marketplace'
   
