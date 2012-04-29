@@ -62,8 +62,8 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/edit
   def edit
-    # TODO(gaye): Enforce permissions
     @stream = Stream.find(params[:id])
+    return unauthorized if @stream.publisher != current_user
   end
   
   # POST /streams
@@ -98,8 +98,8 @@ class StreamsController < ApplicationController
   # PUT /streams/1
   # PUT /streams/1.json
   def update
-    # TODO(gaye): Enforce permissions
     @stream = Stream.find(params[:id])
+    return unauthorized if @stream.publisher != current_user
 
     respond_to do |format|
       if @stream.update_attributes(params[:stream])
@@ -115,8 +115,9 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-    # TODO(gaye): Enforce permissions
     @stream = Stream.find(params[:id])
+    return unauthorized if @stream.publisher != current_user
+    
     @stream.destroy
 
     respond_to do |format|

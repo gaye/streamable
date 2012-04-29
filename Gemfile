@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'capybara'
 gem 'ci_reporter'
 gem 'json'
 gem 'jquery-rails'

@@ -5,6 +5,8 @@ require 'spec_helper'
   Date : 04/21/12
 =end
 describe StreamsController do
+  MISSING_STREAM_ID = 42
+  
   fixtures :streams
   fixtures :users
   fixtures :tags
@@ -34,14 +36,24 @@ describe StreamsController do
   end
   
   context 'show is called and stream is found' do
+    before :each do
+      @stream = streams(:inequalities)
+    end
+    
     it 'should set @stream appropriately' do
-      pending 'TODO(gaye)'
+      get :show, :id => @stream.id
+      assigns(:stream).should == @stream
     end
   end
   
   context 'show is called but stream is not found' do
+    before :each do
+      Stream.where(:id => MISSING_STREAM_ID).should be_empty
+    end
+    
     it 'should return 404 not found' do
-      pending 'TODO(gaye)'
+      get :show, :id => MISSING_STREAM_ID
+      response.code.should == '404'
     end
   end
   
@@ -94,20 +106,43 @@ describe StreamsController do
   end
   
   context 'edit is called, stream is found, and current user is publisher' do
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:gareth)
+      @subscription = Subscription.find_by_stream_id_and_subscriber_id(@stream.id, @user.id)
+      
+      controller.login(@user)
+      @subscription.destroy if @subscription
+    end
+    
     it 'should set @stream appropriately' do
-      pending 'TODO(gaye)'
+      get :edit, :id => @stream.id
+      assigns(:stream).should == @stream
     end
   end
   
   context 'edit is called, stream is found, but current user is not publisher' do
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:armaan)
+      
+      controller.login(@user)
+    end
+    
     it 'should return 401 unauthorized' do
-      pending 'TODO(gaye)'
+      get :edit, :id => @stream.id
+      response.code.should == '401'
     end
   end
   
   context 'edit is called but stream is not found' do
+    before :each do
+      Stream.where(:id => MISSING_STREAM_ID).should be_empty
+    end
+    
     it 'should return 404 not found' do
-      pending 'TODO(gaye)'
+      get :edit, :id => MISSING_STREAM_ID
+      response.code.should == '404'
     end
   end
   
@@ -127,38 +162,84 @@ describe StreamsController do
   end
   
   context 'update is called, stream is found, and current user is publisher' do
+    NEW_TITLE = 'A New Title for an Old Stream'
+    
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:gareth)
+      
+      @stream.title.should_not == NEW_TITLE
+      controller.login(@user)
+    end
+    
     it 'should update appropriately' do
-      pending 'TODO(gaye)'
+      put :update, :id => @stream.id, :stream => {:title => NEW_TITLE}
+      Stream.find(@stream.id).title.should == NEW_TITLE
     end
   end
   
   context 'update is called, stream is found, but current user is not publisher' do
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:armaan)
+      
+      controller.login(@user)
+    end
+    
     it 'should return 401 unauthorized' do
-      pending 'TODO(gaye)'
+      put :update, :id => @stream.id
+      response.code.should == '401'
     end
   end
   
   context 'update is called but stream is not found' do
+    before :each do
+      Stream.where(:id => MISSING_STREAM_ID).should be_empty
+    end
+    
     it 'should return 404 not found' do
-      pending 'TODO(gaye)'
+      put :update, :id => MISSING_STREAM_ID
+      response.code.should == '404'
     end
   end
   
   context 'destroy is called, stream is found, and current user is publisher' do
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:gareth)
+      
+      Stream.where(:id => @stream.id).should_not be_empty
+      controller.login(@user)
+    end
+    
     it 'should remove stream from database' do
-      pending 'TODO(gaye)'
+      delete :destroy, :id => @stream.id
+      Stream.where(:id => @stream.id).should be_empty
     end
   end
   
   context 'destroy is called, stream is found, but current user is not publisher' do
+    before :each do
+      @stream = streams(:inequalities)
+      @user = users(:armaan)
+      
+      controller.login(@user)
+    end
+    
     it 'should return 401 unauthorized' do
-      pending 'TODO(gaye)'
+      delete :destroy, :id => @stream.id
+      response.code.should == '401'
     end
   end
   
   context 'destroy is called but stream is not found' do
+    before :each do
+      Stream.where(:id => MISSING_STREAM_ID).should be_empty
+    end
+    
     it 'should return 404 not found' do
-      pending 'TODO(gaye)'
+      delete :destroy, :id => MISSING_STREAM_ID
+      response.code.should == '404'
     end
   end
 end
