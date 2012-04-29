@@ -7,7 +7,7 @@ require 'spec_helper'
 describe HomeController do
   context 'logged out user visits home index' do
     before :each do
-      controller.stub(:current_user).and_return(nil)
+      controller.stub(:user_logged_in?).and_return(false)
     end
     
     it 'should be success' do
@@ -18,8 +18,7 @@ describe HomeController do
   
   context 'logged in user visits home index' do
     before :each do
-      @user = User.new
-      controller.stub(:current_user).and_return(@user)
+      controller.stub(:user_logged_in?).and_return(true)
     end
     
     it "should redirect" do
