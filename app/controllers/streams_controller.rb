@@ -9,12 +9,7 @@ class StreamsController < ApplicationController
   # GET /streams.json
   def index
     if params[:tags]
-      params[:tags].each do |tag|
-        streams_with_tag = Tag.find_by_name(tag).streams
-        @streams ||= streams_with_tag
-        @streams = @streams & streams_with_tag
-        break if @streams.empty?
-      end
+      @streams = Stream.find_by_tags(params[:tags])
     else
       @streams = Stream.all
     end

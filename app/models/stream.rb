@@ -36,4 +36,16 @@ class Stream < ActiveRecord::Base
   def subscribed?(user)
     subscribers.include?(user)
   end
+  
+  # Expects an array of tags as input
+  def self.find_by_tags(tags)
+    streams = nil
+    tags.each do |tag|
+      streams_with_tag = Tag.find_by_name(tag).streams
+      streams ||= streams_with_tag
+      streams = streams & streams_with_tag
+      break if streams.empty?
+    end
+    streams
+  end
 end

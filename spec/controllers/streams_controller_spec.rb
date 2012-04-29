@@ -12,8 +12,8 @@ describe StreamsController do
   
   context 'index is called with tags' do
     before :each do
-      @tags = [:math, 8]
-      @streams = [streams(:inequalities)]
+      @tags = [tags(:math).name, tags(:grade8).name]
+      @streams = Stream.find_by_tags(@tags)
     end
 
     it 'should set @streams to the appropriate, filtered streams' do
