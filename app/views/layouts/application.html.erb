@@ -11,8 +11,25 @@
 </head>
 <body>
   <div id="header">
-    <div id="logo">
+    <span id="logo">
       <%= link_to image_tag('streamable.png'), streams_path %>
+    </span>
+    
+    <div id="user_panel">
+      <% if user_logged_in? %>
+        <span id="account">
+          <%= link_to image_tag(current_user.image_url), user_path(current_user), 
+              :class => 'user_panel_link' %>
+          <%= link_to format_name(current_user), user_path(current_user),
+              :class => 'user_panel_link' %>
+        </span>
+        
+        <span id="sign_out">
+          <%= link_to 'Sign Out', users_logout_path %>
+        </span>
+      <% else %>
+        <%= render 'users/login' %>
+      <% end %>
     </div>
   </div>
 
