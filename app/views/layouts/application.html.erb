@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Streamable</title>
-  <%= stylesheet_link_tag     "application", :media => "all" %>
-  <%= stylesheet_link_tag     "jquery-ui-1.8.19.custom.css" %>
-  <%= javascript_include_tag  "application" %>
+  <%= stylesheet_link_tag     'application', :media => 'all' %>
+  <%= stylesheet_link_tag     'jquery-ui-1.8.19.custom.css' %>
+  <%= javascript_include_tag  'application' %>
   <%= csrf_meta_tags %>
 
   <meta property="fb:app_id" content="206560469458633">
@@ -18,10 +18,8 @@
     <div id="user_panel">
       <% if user_logged_in? %>
         <span id="account">
-          <%= link_to image_tag(current_user.image_url), user_path(current_user), 
-              :class => 'user_panel_link' %>
-          <%= link_to format_name(current_user), user_path(current_user),
-              :class => 'user_panel_link' %>
+          <%= link_to image_tag(current_user.image_url), user_path(current_user) %>
+          <%= link_to format_name(current_user), user_path(current_user) %>
         </span>
         
         <span id="sign_out">

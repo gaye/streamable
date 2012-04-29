@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Streamable</title>
-  <%= stylesheet_link_tag     "application", :media => "all" %>
-  <%= stylesheet_link_tag     "home" %>
-  <%= javascript_include_tag  "home" %>
+  <%= stylesheet_link_tag     'application', :media => 'all' %>
+  <%= stylesheet_link_tag     'home' %>
+  <%= javascript_include_tag  'home' %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -35,7 +35,7 @@
       </div>
     
       <%= render 'users/login' %>
-      <%= link_to '...or check it out first!', streams_path, :id => "checkit" %>   
+      <%= link_to '...or check it out first!', streams_path, :id => 'checkit' %>   
       <div style="clear:both" />
     </div>
   
