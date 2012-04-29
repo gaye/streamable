@@ -7,17 +7,29 @@ require 'spec_helper'
 describe StreamsController do
   fixtures :streams
   fixtures :users
+  fixtures :tags
   fixtures :subscriptions
   
   context 'index is called with tags' do
+    before :each do
+      @tags = [tags(:math).name, tags(:grade8).name]
+      @streams = Stream.find_by_tags(@tags)
+    end
+
     it 'should set @streams to the appropriate, filtered streams' do
-      pending 'TODO(gaye): Once Armaan adds stream fixtures, implement this'
+      get :index, :tags => @tags
+      assigns(:streams).should == @streams
     end
   end
   
   context 'index is called without tags' do
+    before :each do
+      @streams = Stream.all
+    end
+    
     it 'should set @streams to the collection of all streams' do
-      pending 'TODO(gaye): Once Armaan adds stream fixtures, implement this'
+      get :index
+      assigns(:streams).should == @streams
     end
   end
   
