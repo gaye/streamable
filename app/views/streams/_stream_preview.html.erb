@@ -3,8 +3,7 @@
     <%= image_tag 'placeholder.jpeg' %>
     <!-- TODO (armaansarkar): video thumbnail -->
   </div>
-  <% description = truncate_to_words(stream.description, 250)%>
-  <%= link_to description, stream, :class => "preview_description" %>
+  <%= link_to truncate_to_words(stream.description, 250), stream, :class => "preview_description" %>
 </div>
 <div class="preview_title">
   <%= link_to stream.title, stream %>

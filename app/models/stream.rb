@@ -46,6 +46,7 @@ class Stream < ActiveRecord::Base
       streams = streams & streams_with_tag
       break if streams.empty?
     end
+    
     streams
   end
 end
