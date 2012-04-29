@@ -21,9 +21,9 @@ $(document).ready ->
     
   updateStreams = ->
     $.get('streams/index', { tags : selectedTags }, (data, status, xhr) -> 
-      $("#streams").fadeOut("fast", -> 
-        $("#streams").html($('#streams', $(data)).html())      
-        $("#streams").fadeIn("slow")
+      $('#streams').fadeOut('fast', -> 
+        $('#streams').html($('#streams', $(data)).html())      
+        $('#streams').fadeIn('slow')
       )
     )
 
