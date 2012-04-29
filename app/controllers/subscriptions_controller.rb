@@ -33,6 +33,6 @@ class SubscriptionsController < ApplicationController
     @subscription.find(:stream_id => params[:stream_id], :subscriber_id => current_user.id)
     @subscription.destroy
     
-    redirect_to @user, :notice => "No problem. You're unsubscribed."
+    redirect_to @user, :notice => 'No problem. You\'re unsubscribed.'
   end
 end
