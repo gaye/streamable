@@ -8,12 +8,9 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    if params[:tags]
-      @streams = Stream.find_by_tags(params[:tags])
-    else
-      @streams = Stream.all
-    end
-    @tags = Tag.all    
+    @streams = params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all 
+    @tags = Tag.all
+     
     respond_to do |format|
       format.html
       format.json { render :json => @streams }
@@ -78,10 +75,11 @@ class StreamsController < ApplicationController
     
     @stream = Stream.new(params[:stream])
 
-    tags = params[:tags].split(",")     
+    tags = params[:tags].split(',')     
     tags.each do |t|
-      tag = Tag.find_by_name(t)
-      @stream.tags << tag if tag
+      if tag = Tag.find_by_name(t)
+        @stream.tags << tag
+      end
     end
     
     respond_to do |format|
