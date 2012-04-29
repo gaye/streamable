@@ -2,6 +2,7 @@
 
 /* streams/index */
 #dashboard {
+  display: none;
   float: left;
   width: 300px;
   height: 150px;
@@ -14,10 +15,34 @@
 #index {
   margin-top: 40px;
   position: absolute;
+  width: 100%;
+  #categories {
+    background-color: grey;
+    padding-bottom: 20px;
+    @include rounded();
+    @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2));
+  }
   #content {
-    float: left;
-    margin-left: 10px;
-    width: 900px;  
+    position: relative;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    #message {
+      text-align: center;
+      margin: 30px 0px;
+      
+      #main {
+        font-size: 50px;
+        font-family: $font-heading;
+      }
+      
+      #sub {
+        font-size: 30px;
+        color: grey;
+        font-family: $font-heading;       
+      }
+    }
     
     #grade_slider {
       margin-bottom: 40px;
@@ -30,6 +55,8 @@
   }
   .tick {
     margin-left: 12.5%;
+    color: white;
+    // text-shadow: 0px -1px 0px white;
   }
 }
 
@@ -129,7 +156,7 @@
     .preview_time {
       display: inline;
       color: grey;
-      padding-left: 20px;
+      padding-left: 10px;
     }
   }
 }

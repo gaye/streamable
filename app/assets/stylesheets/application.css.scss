@@ -14,6 +14,7 @@
 @import "mixins.css.scss";
 
 body { 
+  font-family: $font-body;
   #header {
     background-color: #113D52;
     height: 70px;
