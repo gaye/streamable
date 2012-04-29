@@ -4,10 +4,7 @@
     <!-- TODO (armaansarkar): video thumbnail -->
   </div>
   
-  <%= link_to 
-          truncate_to_words(stream.description, 240),
-          stream, 
-          :class => 'preview_description' %>
+  <%= link_to truncate_to_words(stream.description, 240), stream, :class => 'preview_description' %>
 </div>
 
 <div class="preview_title">
