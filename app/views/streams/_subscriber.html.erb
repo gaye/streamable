@@ -4,6 +4,7 @@
 <div id="subscribers">
 </div>
 
+<%= javascript_include_tag  'application' %>
 <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
 <script type="text/javascript">
   var apiKey = "14128932";
@@ -21,7 +22,7 @@
     var div = document.createElement('div');
     div.setAttribute('id', 'me');
     $('#subscribers').append(div);
-    session.publish('me')
+    session.publish('me');
     subscribeToStreams(event.streams);
   }
 

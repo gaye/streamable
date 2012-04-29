@@ -1,9 +1,12 @@
 <div id="publisher">
+  <div id="publisher_video">
+  </div>
 </div>
 
 <div id="subscribers">
 </div>
 
+<%= javascript_include_tag  'application' %>
 <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
 <script type="text/javascript">
   var apiKey = "14128932";
@@ -18,7 +21,7 @@
   session.connect(apiKey, token);
 
   function sessionConnectedHandler(event) {
-    session.publish('publisher', {'name' : 'publisher'});
+    session.publish('publisher_video', {'name' : 'publisher', 'width' : 600, 'height' : 400});
     subscribeToStreams(event.streams);
   }
 
