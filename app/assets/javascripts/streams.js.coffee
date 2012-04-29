@@ -16,8 +16,7 @@ $(document).ready ->
     setTagFieldsInForm()
       
   getGrade = (value) ->
-    decimal = value - Math.floor(value)
-    value = if (decimal < 0.5) then Math.floor(value) else Math.ceil(value)
+    value = Math.floor(value + 0.5)
     if value is 5 then '' else value
     
   updateStreams = ->
