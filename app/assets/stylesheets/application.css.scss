@@ -21,7 +21,10 @@ body {
     @include shadow(2px 2px 8px rgba(0,0,0,0.2));
     
     #logo {
-      padding: 10px;
+      img {
+        margin-top: 15px;
+        margin-left: 10px;
+      }
     }
     
     #user_panel {
