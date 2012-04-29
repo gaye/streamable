@@ -70,7 +70,7 @@
       left: 1px;
       width: 298px;
       height: 150px;
-      background-color: rgba(67,184,228, 0.5);
+      background-color: rgba(67, 184, 228, 0.5);
       display: none;
     }
     
@@ -98,7 +98,7 @@
   padding: 10px 30px;
   background-color: grey;
   @include rounded();
-  @include shadow(2px 2px 8px rgba(0,0,0,0.2))
+  @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2))
 }
 
 .tag_button_pressed {
@@ -108,7 +108,7 @@
   padding: 10px 30px;
   background-color: #43B8E4;
   @include rounded();
-  @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2))
+  @include shadow(inset 4px 4px 12px rgba(0, 0, 0, 0.2))
 }
 
 /* streams/new */
@@ -120,6 +120,7 @@
   margin-right: auto;
   margin-top: 50px;
   padding: 20px;
+  @include shadow(8px 8px 12px rgba(0, 0, 0, 0.4))
 }
 
 #instruction {
