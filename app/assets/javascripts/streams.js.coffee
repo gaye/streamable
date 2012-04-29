@@ -41,6 +41,8 @@ $(document).ready ->
   )
   
   ##### streams/new #####
+  # TODO(gaye): Move this from parallel arrays to full-fleged objects...
+  
   stages = [
       '#video_preview',
       '#title',
