@@ -8,7 +8,7 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @stream = params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all 
+    @streams = params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all 
     @tags = Tag.all
      
     respond_to do |format|
