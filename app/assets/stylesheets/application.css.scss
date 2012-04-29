@@ -19,7 +19,10 @@ body {
     height: 70px;
   
     #logo {
-      padding: 10px;
+      img {
+        margin-top: 15px;
+        margin-left: 10px;
+      }
     }
     
     #user_panel {
