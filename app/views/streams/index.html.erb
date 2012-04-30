@@ -16,6 +16,10 @@
         <div class=<%= "preview #{i % 2 == 0 ? 'left' : 'right'}" %>>
           <%= render :partial => 'stream_preview', :locals => {:stream => s} %>
         </div>
+        
+        <% if i % 2 == 1 %>
+          <div style="clear:both" />
+        <% end %>
       <% end %>
     </div>
   </div>
