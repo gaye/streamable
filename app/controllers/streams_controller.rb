@@ -8,6 +8,9 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
+    # TODO(gaye): We don't want an all query here 
+    # we'd rather send some and then continue to load them in via ajax
+    # This is a prohibitively expensive request otherwise
     @streams = params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all 
     @tags = Tag.all
      
