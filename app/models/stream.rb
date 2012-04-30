@@ -30,7 +30,7 @@ class Stream < ActiveRecord::Base
   
   # TODO(gaye): If possible, replace this with a has_many :through
   def subscribers
-    subscriptions.map(&:user)
+    subscriptions.each(&:user)
   end
   
   def subscribed?(user)
@@ -41,7 +41,8 @@ class Stream < ActiveRecord::Base
   def self.find_by_tags(tags)
     streams = nil
     tags.each do |tag|
-      streams_with_tag = Tag.find_by_name(tag).streams
+      # Make sure we're loading the streams of the tags eagerly
+      streams_with_tag = Tag.find_by_name(tag, :include => :streams).streams
       streams ||= streams_with_tag
       streams = streams & streams_with_tag
       break if streams.empty?

@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
   
   # TODO(gaye): If possible, replace this with a has_many :through
   def streams_as_subscriber
-    subscriptions.map(&:stream)
+    subscriptions.each(&:stream)
   end
 end

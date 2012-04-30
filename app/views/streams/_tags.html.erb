@@ -1,16 +1,19 @@
 <div id="grade_slider">
-  <% tags.delete_if{ |t| t.name.to_i != 0 } %>
+  <% tags.delete_if {|t| t.name.to_i != 0} %>
   <br />
+  
   <div id="ticks">
     <div class="tick">
     </div>
     <br />
+    
     <% (6..12).each do |i| %>
       <div class="tick">
         <%= i %>
       </div>
     <% end %>
   </div>
+  
   <div id="slider">
   </div>
 </div>

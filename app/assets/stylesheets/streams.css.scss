@@ -16,12 +16,14 @@
   margin-top: 40px;
   position: absolute;
   width: 100%;
+  
   #categories {
     background-color: lighten(gray, 30%);
     padding-bottom: 20px;
     @include rounded();
     @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2));
   }
+  
   #content {
     position: relative;
     width: 900px;
@@ -53,6 +55,7 @@
       display: inline;
     }
   }
+  
   .tick {
     margin-left: 12.5%;
     color: $blue;
@@ -78,6 +81,7 @@
     left: 10px;
     margin-left: auto;
     margin-right: auto;    
+    
     .tick {
       float: left;
       position: relative;
@@ -102,6 +106,7 @@
     width: 300px;
     margin-right: 80px;
     margin-bottom: 30px;
+    
     .preview_image {
       height: 200px;
       border: solid grey 1px;
@@ -132,13 +137,16 @@
     
     .preview_title {
       text-align: center;
+      
       a {
         text-decoration: none;
         color: black;
+        
         &:hover {
           color: #113D52;
         }
       }
+      
       font-size: 20px;
       margin-bottom: 5px;
     }
@@ -146,9 +154,11 @@
     .preview_publisher {
       display: inline;
       margin-right: 80px;
+      
       a {
         text-decoration: none;
         color: grey;
+        
         &:hover {
           color: #113D52;
         }

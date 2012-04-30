@@ -11,9 +11,10 @@ class StreamsController < ApplicationController
     # TODO(gaye): We don't want an all query here 
     # we'd rather send some and then continue to load them in via ajax
     # This is a prohibitively expensive request otherwise
-    @streams = params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all 
+    @streams = 
+        params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all(:include => :publisher)   
     @tags = Tag.all
-     
+    
     respond_to do |format|
       format.html
       format.json { render :json => @streams }
@@ -23,7 +24,7 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     @subscription = Subscription.new
     # TODO(gaye): Lookup whether current user is publisher/subscriber
     
@@ -35,7 +36,7 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/broadcast
   def broadcast
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     if @stream.publisher == current_user
       @publisher = true
       @token = @stream.publisher_token
@@ -62,7 +63,7 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/edit
   def edit
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     return unauthorized if @stream.publisher != current_user
   end
   
@@ -99,7 +100,7 @@ class StreamsController < ApplicationController
   # PUT /streams/1
   # PUT /streams/1.json
   def update
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     return unauthorized if @stream.publisher != current_user
 
     respond_to do |format|
@@ -116,7 +117,7 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     return unauthorized if @stream.publisher != current_user
     
     @stream.destroy
