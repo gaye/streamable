@@ -78,13 +78,7 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
-
-    tags = params[:tags].split(',')     
-    tags.each do |t|
-      if tag = Tag.find_by_name(t)
-        @stream.tags << tag
-      end
-    end
+    @stream.tags = params[:tags].split(',').each {|t| Tag.find_or_create_by_name(t)}
     
     respond_to do |format|
       if @stream.save
