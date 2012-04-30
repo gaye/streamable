@@ -101,6 +101,7 @@ GEM
     multi_json (1.3.2)
     multi_xml (0.4.4)
     multipart-post (1.1.5)
+    newrelic_rpm (3.3.4.1)
     nokogiri (1.5.2)
     oauth2 (0.6.1)
       faraday (~> 0.7)
@@ -208,6 +209,7 @@ DEPENDENCIES
   hirefireapp
   jquery-rails
   json
+  newrelic_rpm
   omniauth-facebook
   paperclip (~> 2.7)
   pg
