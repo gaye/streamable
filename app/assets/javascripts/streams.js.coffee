@@ -8,12 +8,14 @@ $(document).ready ->
     $(element).toggleClass('tag_button')
     
   addTag = (tagName) ->
-    selectedTags.push(tagName)
-    setTagFieldsInForm()
+    if (tagName isnt '')
+      selectedTags.push(tagName)
+      setTagFieldsInForm()
   
   removeTag = (tagName) ->
-    selectedTags.splice(selectedTags.indexOf(tagName), 1)
-    setTagFieldsInForm()
+    if (tagName isnt '')
+      selectedTags.splice(selectedTags.indexOf(tagName), 1)
+      setTagFieldsInForm()
       
   getGrade = (value) ->
     value = Math.floor(value + 0.5)
@@ -21,9 +23,9 @@ $(document).ready ->
     
   updateStreams = ->
     $.get('streams/index', { tags : selectedTags }, (data, status, xhr) -> 
-      $('#streams').fadeOut('fast', -> 
-        $('#streams').html($('#streams', $(data)).html())      
-        $('#streams').fadeIn('slow')
+      $('#streams').fadeOut('fast', ->
+        $('#streams').html($('#streams', $(data)).html())
+        $('#streams').fadeIn('fast')
       )
     )
 
@@ -36,8 +38,7 @@ $(document).ready ->
     if (newGrade isnt currentGrade)
       $('#grade_badge').html(newGrade)
       removeTag(currentGrade)
-      if (newGrade isnt '')
-        addTag(newGrade)
+      addTag(newGrade)
       currentGrade = newGrade
       updateStreams()
   )
