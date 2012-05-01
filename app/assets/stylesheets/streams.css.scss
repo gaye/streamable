@@ -180,7 +180,7 @@
   padding: 10px 30px;
   background-color: #113D52;
   @include rounded();
-  @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2))
+  @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
 }
 
 .tag_button_pressed {
@@ -190,7 +190,33 @@
   padding: 10px 30px;
   background-color: #43B8E4;
   @include rounded();
-  @include shadow(inset 4px 4px 12px rgba(0, 0, 0, 0.2))
+  @include shadow(inset 4px 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+#bottom {
+  background-color: $blue;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 100px;
+  @include shadow(inset 4px 8px 12px rgba(0, 0, 0, 0.2));
+  color: white;
+  font-family: $font-heading;
+  #main { font-size: 50px; }
+  #sub { font-size: 25px; }
+  a {
+    position: relative;
+    top: 20px;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    color: $blue;
+    padding: 15px 60px;
+    @include rounded();
+    @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
+    &:active {
+      @include shadow(inset 8px 8px 12px rgba(0, 0, 0, 0.2));
+    }
+  }
 }
 
 /* streams/new */
