@@ -30,8 +30,17 @@
           <%= @stream.description %>
           
           <br /><br /><br /><br />
-
-          <%= render 'subscriptions/form' %>
+          
+          <% if @publisher || @subscribed %>
+            <% if Time.now >= @stream.when %>
+              <!-- TODO(gaye): Style this -->
+              <%= link_to 'Go to the broadcast!', "/streams/#{@stream.id}/broadcast" %>
+            <% else %>
+              You're all set. We'll see you at <%= format_time(@stream.when) %>.
+            <% end %>
+          <% else %>
+            <%= render 'subscriptions/form' %>
+          <% end %>
         </div>
       </td>
     </tr>

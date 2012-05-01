@@ -26,7 +26,19 @@ class StreamsController < ApplicationController
   def show
     @stream = Stream.find(params[:id], :include => :publisher)
     @subscription = Subscription.new
-    # TODO(gaye): Lookup whether current user is publisher/subscriber
+    @subscribed = false
+    @publisher = false
+    
+    if current_user
+      if @stream.publisher == current_user
+        @publisher = true
+        # TODO(gaye): Redirect to edit once we've built the page
+        # return redirect_to edit_stream_path, :id => @stream.id
+      elsif subscription = Subscription.find_by_stream_id_and_subscriber_id(@stream.id, current_user.id)
+        @subscription = subscription
+        @subscribed = true
+      end
+    end
     
     respond_to do |format|
       format.html
