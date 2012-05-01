@@ -3,14 +3,18 @@
     <%= image_tag 'placeholder.jpeg' %>
     <!-- TODO (armaansarkar): video thumbnail -->
   </div>
-  <%= link_to truncate_to_words(stream.description, 250), stream, :class => "preview_description" %>
+  
+  <%= link_to truncate_to_words(stream.description, 240), stream, :class => 'preview_description' %>
 </div>
+
 <div class="preview_title">
   <%= link_to stream.title, stream %>
 </div>
+
 <div class="preview_publisher">
-  <%= link_to stream.publisher.first_name + " "  + stream.publisher.last_name, stream.publisher %>    
+  <%= link_to format_name(stream.publisher), stream.publisher %>    
 </div>
+
 <div class="preview_time">
   <%= format_time(stream.when) %>    
 </div>

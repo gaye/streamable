@@ -6,7 +6,7 @@
 class HomeController < ApplicationController
   # GET /
   def index
-    if current_user
+    if user_logged_in?
       redirect_to streams_path
     else
       render :layout => 'home'

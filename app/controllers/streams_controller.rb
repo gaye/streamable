@@ -8,12 +8,13 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    if params[:tags]
-      @streams = Stream.find_by_tags(params[:tags])
-    else
-      @streams = Stream.all
-    end
-    @tags = Tag.all    
+    # TODO(gaye): We don't want an all query here 
+    # we'd rather send some and then continue to load them in via ajax
+    # This is a prohibitively expensive request otherwise
+    @streams = 
+        params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all(:include => :publisher)   
+    @tags = Tag.all
+    
     respond_to do |format|
       format.html
       format.json { render :json => @streams }
@@ -23,7 +24,7 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     @subscription = Subscription.new
     # TODO(gaye): Lookup whether current user is publisher/subscriber
     
@@ -35,15 +36,14 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/broadcast
   def broadcast
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
     if @stream.publisher == current_user
+      @publisher = true
       @token = @stream.publisher_token
-      return render :partial => 'publisher'
     elsif @subscription = Subscription.find_by_stream_id_and_subscriber_id(@stream.id, current_user.id)
+      @publisher = false
       @token = @subscription.subscriber_token
-      return render :partial => 'subscriber'
     else
-      # TODO(gaye): What behavior do we want here?
       redirect_to @stream, :notice => 'No silly! You have to sign up first!'
     end
   end
@@ -63,8 +63,8 @@ class StreamsController < ApplicationController
   
   # GET /streams/1/edit
   def edit
-    # TODO(gaye): Enforce permissions
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
+    return unauthorized if @stream.publisher != current_user
   end
   
   # POST /streams
@@ -78,12 +78,7 @@ class StreamsController < ApplicationController
     params[:stream][:publisher_token] = token
     
     @stream = Stream.new(params[:stream])
-
-    tags = params[:tags].split(",")     
-    tags.each do |t|
-      tag = Tag.find_by_name(t)
-      @stream.tags << tag if tag
-    end
+    @stream.tags = params[:tags].split(',').map {|t| Tag.find_or_create_by_name(t)}
     
     respond_to do |format|
       if @stream.save
@@ -99,8 +94,8 @@ class StreamsController < ApplicationController
   # PUT /streams/1
   # PUT /streams/1.json
   def update
-    # TODO(gaye): Enforce permissions
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
+    return unauthorized if @stream.publisher != current_user
 
     respond_to do |format|
       if @stream.update_attributes(params[:stream])
@@ -116,8 +111,9 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-    # TODO(gaye): Enforce permissions
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id], :include => :publisher)
+    return unauthorized if @stream.publisher != current_user
+    
     @stream.destroy
 
     respond_to do |format|
