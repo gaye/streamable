@@ -203,6 +203,7 @@
   font-family: $font-heading;
   #main { font-size: 50px; }
   #sub { font-size: 25px; }
+  
   a {
     position: relative;
     top: 20px;
@@ -222,29 +223,28 @@
 /* streams/new */
 #form_container {
   @include rounded();
-  background-color: #F0F0F0;
+  @include shadow(8px 8px 12px rgba(0, 0, 0, 0.4));
+  
+  margin-top: 50px;
+  padding: 20px;
   width: 700px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
+  
+  background-color: $blue;
+  color: white;
 
   #tag_buttons {
     margin-right: auto;
     margin-left: auto;  
     width: 200px; 
   }
-
-  .tick {
-    margin-left: 12%;
-  }
-
-  margin-top: 50px;
-  padding: 20px;
-  @include shadow(8px 8px 12px rgba(0, 0, 0, 0.4))
 }
 
 #instruction {
   text-align: center;
-  color: #113D52;
+  color: white;
   font-family: $font-heading;
 }
 
@@ -257,7 +257,7 @@
   margin-right: auto;
   text-align: center;
   width: 100%;
-  color: black;
+  color: white;
 }
 
 #continue {
@@ -265,8 +265,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 200px;
-  padding: 3px;
+  padding: 10px 25px;
   background-color: white;
+  color: $blue;
   border: 1px solid rgba(0, 0, 0, 0.66);
   @include rounded();
 }
