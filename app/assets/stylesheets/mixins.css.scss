@@ -16,26 +16,6 @@
   box-shadow:         $params;
 }
 
-@mixin gradient() {
-  /* Webkit (Safari/Chrome 10) */ 
-  background-image: -webkit-gradient(radial, center bottom, 0, center bottom, 480, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));
-
-  /* Webkit (Chrome 11+) */ 
-  background-image: -webkit-radial-gradient(center bottom, circle farthest-side, #FFFFFF 0%, #00A3EF 100%);
-
-  /* Proposed W3C Markup */ 
-  background-image: radial-gradient(center bottom, circle farthest-side, #FFFFFF 0%, #00A3EF 100%);
-  
-  /* IE10 */ 
-  background-image: -ms-radial-gradient(center bottom, circle farthest-side, #FFFFFF 0%, #00A3EF 100%);
-
-  /* Mozilla Firefox */ 
-  background-image: -moz-radial-gradient(center bottom, circle farthest-side, #FFFFFF 0%, #00A3EF 100%);
-
-  /* Opera */ 
-  background-image: -o-radial-gradient(center bottom, circle farthest-side, #FFFFFF 0%, #00A3EF 100%);
-}
-
 $font-heading: 'Droid Serif', Georgia, Times, serif;
 $font-body: 'Droid Sans', Helvetica, Arial, sans-serif;
 

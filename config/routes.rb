@@ -1,5 +1,5 @@
 Streamable::Application.routes.draw do
-  root :to => 'home#index'
+  root :to => 'streams#index'
 
   match 'users/logout' => 'application#logout'
   
