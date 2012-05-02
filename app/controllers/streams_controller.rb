@@ -29,7 +29,7 @@ class StreamsController < ApplicationController
     @subscribed = false
     @publisher = false
     
-    if current_user
+    if user_logged_in?
       if @stream.publisher == current_user
         @publisher = true
         # TODO(gaye): Redirect to edit once we've built the page
