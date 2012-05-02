@@ -15,12 +15,15 @@
 
 body {
   margin: 0;
+  
   font-family: $font-body;
   
   #header {
-    background-color: #113D52;
-    height: 70px;
     @include shadow(2px 2px 8px rgba(0,0,0,0.2));
+    
+    height: 70px;
+    
+    background-color: $blue;
     
     #logo {
       img {
