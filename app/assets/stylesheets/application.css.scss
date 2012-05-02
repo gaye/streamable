@@ -30,25 +30,30 @@ body {
     }
     
     #user_panel {
+      float: right;
       margin-top: 10px;
       margin-right: 20px;
-      float: right;
+      
       font-size: 18px;
+      
       a {
         color: white;
         text-decoration: none;
       }
       
       #signup {
-  		  background: url('facebook.png');
-  		  background-repeat: no-repeat;
+        width: 252px;
   		  height: 50px;
-  		  width: 252px;
-  		  display: block;
+  		  margin-top: 5px;
   		  margin-left: auto;
   		  margin-right: auto;
   		  padding-top: 10px;
   		  padding-left: 55px;
+  		  
+  		  background: url('facebook.png');
+  		  background-repeat: no-repeat;
+  		  display: block;
+
   		  &:hover {
   		    cursor: hand;
           cursor: pointer;
@@ -62,10 +67,11 @@ body {
   		}
   		
   		#sign_out {
-  		  vertical-align: middle;
   		  padding-top: 35px;
   		  padding-left: 10px;
   		  padding-right: 10px;
+  		  
+  		  vertical-align: middle;
   		}
     }
   }
