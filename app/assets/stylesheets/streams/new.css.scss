@@ -1,0 +1,74 @@
+@import "mixins.css.scss";
+
+#form_container {
+  @include rounded();
+  @include shadow(8px 8px 12px rgba(0, 0, 0, 0.4));
+  
+  margin-top: 50px;
+  padding: 20px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  
+  background-color: $gray;
+  color: $blue;
+  
+  .tick {
+    margin-left: 12%;
+  }
+  
+  #grade_slider {
+    margin-bottom: 40px;
+  }
+  
+  .tag {
+    margin-top: 40px;
+    display: inline;
+  }
+}
+
+#instruction {
+  text-align: center;
+  color: $blue;
+  font-family: $font-heading;
+}
+
+#explanation {
+  text-align: center;
+}
+
+.field {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  
+  color: $blue;
+}
+
+#continue {
+  @include rounded();
+  
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 25px;
+  
+  text-align: center;
+  
+  background-color: white;
+  color: $blue;
+  border: 1px solid rgba(0, 0, 0, 0.66);
+}
+
+#continue:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+#submit {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}

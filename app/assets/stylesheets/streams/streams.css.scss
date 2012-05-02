@@ -1,0 +1,75 @@
+@import "mixins.css.scss";
+
+.palette {
+  @include rounded();
+  @include shadow(inset 4px 4px 12px rgba(0,0,0,0.2));
+  
+  padding-bottom: 20px;
+  
+  background-color: $gray;
+}
+
+.grade_slider {
+  margin-bottom: 40px;
+  
+  #grade_badge {
+    @include rounded(40px);
+    
+    width: 40px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    text-align: center;
+
+    background-color: #43B8E4;
+    font-weight: bold;
+  }
+  
+  #ticks {
+    width: 80%;
+    position: relative;
+    left: 10px;
+    margin-left: auto;
+    margin-right: auto;    
+    
+    .tick {
+      float: left;
+      position: relative;
+      top: -25px;
+    }
+  }
+  
+  #slider {
+    margin-left: auto;
+    margin-right: auto;    
+    width: 80%;
+  }
+}
+
+.tag_button {
+  @include rounded();
+  @include shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
+  
+  margin: 10px;
+  padding: 10px 30px;
+  
+  cursor: pointer;
+  
+  background-color: $blue;
+  color: white;
+}
+
+.tag_button_pressed {
+  @include rounded();
+  @include shadow(inset 4px 4px 12px rgba(0, 0, 0, 0.2));
+  
+  margin: 10px;
+  padding: 10px 30px;
+  
+  cursor: pointer;
+  
+  
+  background-color: $yellow;
+  color: $blue;
+}
