@@ -13,8 +13,8 @@ gareth:
 armaan:
   id: 2
   facebook_uid: 512468194
-  first_name: 'Sarkar'
-  last_name: 'Armaan'
+  first_name: 'Armaan'
+  last_name: 'Sarkar'
   image_url: 'http://graph.facebook.com/512468194/picture?type=square'
   raw: '{\"provider\":\"facebook\",\"uid\":\"512468194\",\"info\":{\"nickname\":\"sarkar.armaan\",\"email\":\"armaansarkar@hotmail.com\",\"name\":\"Armaan Sarkar\",\"first_name\":\"Armaan\",\"last_name\":\"Sarkar\",\"image\":\"http://graph.facebook.com/512468194/picture?type=square\",\"urls\":{\"Facebook\":\"http://www.facebook.com/sarkar.armaan\"},\"location\":\"Middlebury, Vermont\"},\"credentials\":{\"token\":\"AAAC73ZAtoHskBAEPjS24PHRowTNEYzzex7dGZCB56I3oDe9y4ArSV7iXkgqJ7CPdfWOFfUkXn1kYEi39gXzNNUgxfx5jDuiajhaZBQUjQZDZD\",\"expires_at\":1340467725,\"expires\":true},\"extra\":{\"raw_info\":{\"id\":\"512468194\",\"name\":\"Armaan Sarkar\",\"first_name\":\"Armaan\",\"last_name\":\"Sarkar\",\"link\":\"http://www.facebook.com/sarkar.armaan\",\"username\":\"sarkar.armaan\",\"hometown\":{\"id\":\"106517799384578\",\"name\":\"New Delhi, India\"},\"location\":{\"id\":\"107513719278840\",\"name\":\"Middlebury, Vermont\"},\"gender\":\"male\",\"email\":\"armaansarkar@hotmail.com\",\"timezone\":-4,\"locale\":\"en_GB\",\"languages\":[{\"id\":\"106059522759137\",\"name\":\"English\"},{\"id\":\"112969428713061\",\"name\":\"Hindi\"},{\"id\":\"112491588765120\",\"name\":\"Bengali\"}],\"verified\":true,\"updated_time\":\"2012-04-16T02:52:45+0000\"}}}'
   token: 'AAAC73ZAtoHskBAEPjS24PHRowTNEYzzex7dGZCB56I3oDe9y4ArSV7iXkgqJ7CPdfWOFfUkXn1kYEi39gXzNNUgxfx5jDuiajhaZBQUjQZDZD'

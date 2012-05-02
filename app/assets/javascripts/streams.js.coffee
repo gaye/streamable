@@ -23,9 +23,11 @@ $(document).ready ->
     
   updateStreams = ->
     $.get('streams/index', { tags : selectedTags }, (data, status, xhr) -> 
-      $('#streams').fadeOut('fast', ->
+      height = $('#content').height()
+      $('#streams').animate({ opacity : 0 }, ->
         $('#streams').html($('#streams', $(data)).html())
-        $('#streams').fadeIn('fast')
+        $('#content').height(height)
+        $('#streams').animate({ opacity : 1.0 })
       )
     )
 
