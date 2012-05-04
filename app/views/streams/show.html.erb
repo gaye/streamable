@@ -19,7 +19,8 @@
     <tr>
       <td>
         <div id="video_preview">
-          <video src=<%= @stream.video_preview.url %> controls>
+          <video src=<%= @stream.video_preview.url %> class="video-js vjs-default-skin" controls
+            preload="auto" width="700" height="320" data-setup="{}">
             Couldn't display video!
           </video>
         </div>
