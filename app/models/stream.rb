@@ -66,7 +66,8 @@ class Stream < ActiveRecord::Base
       :outputs => [
         { 
           :url => "s3://#{webm_file_path}", 
-          :notifications => [{:format => 'json', :url => ENCODE_NOTIFY_URL}] 
+          :notifications => [{:format => 'json', :url => ENCODE_NOTIFY_URL}],
+          :access_control => [{:permission => 'READ', :grantee => 'EVERYONE'}]
         },
         { 
           :thumbnails => [{ 
