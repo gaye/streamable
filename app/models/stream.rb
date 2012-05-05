@@ -86,7 +86,7 @@ class Stream < ActiveRecord::Base
     })
     
     self.zencoder_output_url = "#{S3_BASE_URL}/#{webm_file_path}"
-    self.zencoder_id = response.body['id']
+    self.zencoder_id = response.body['id'].to_i
     self.save
   end
   

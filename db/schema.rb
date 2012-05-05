@@ -25,19 +25,20 @@ ActiveRecord::Schema.define(:version => 20120504232715) do
     t.datetime "video_preview_updated_at"
     t.text     "opentok_session_id"
     t.text     "publisher_token"
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.string   "zencoder_id"
-    t.string   "zencoder_state",             :default => "unencoded"
+    t.integer  "zencoder_id"
+    t.boolean  "zencoder_state",             :default => false
     t.string   "zencoder_output_url"
   end
 
   add_index "streams", ["publisher_id"], :name => "index_streams_on_publisher_id"
   add_index "streams", ["zencoder_id"], :name => "index_streams_on_zencoder_id"
+  add_index "streams", ["zencoder_state"], :name => "index_streams_on_zencoder_state"
 
   create_table "streams_tags", :id => false, :force => true do |t|
     t.integer "stream_id"

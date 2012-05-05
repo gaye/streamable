@@ -2,7 +2,7 @@ class AddZencoderToStreams < ActiveRecord::Migration
   def change
     change_table :streams do |t|
       t.has_attached_file :thumbnail
-      t.string            :zencoder_id
+      t.integer           :zencoder_id
       t.boolean           :zencoder_state, :default => false
       t.string            :zencoder_output_url
     end
