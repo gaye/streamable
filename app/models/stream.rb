@@ -65,10 +65,10 @@ class Stream < ActiveRecord::Base
     thumb_file_path = "#{stripped_file_path}.png"
     
     response = Zencoder::Job.create({
-      :input => "s3://#{s3_base_path}/#{original_file_path}",
+      :input => "s3://#{original_file_path}",
       :outputs => [
         { 
-          :url => "s3://#{s3_base_path}/#{webm_file_path}", 
+          :url => "s3://#{webm_file_path}", 
           :notifications => [{ 
             :format => 'json',
             :url => 'http://staging.streamable.tv/streams/encode_notify'
@@ -78,14 +78,14 @@ class Stream < ActiveRecord::Base
           :thumbnails => [{ 
             :number => 1,
             :label => strip_extension(self.video_preview_file_name),
-            :url => "s3://#{s3_base_path}/#{thumb_file_path}" 
+            :url => "s3://#{thumb_file_path}" 
           }] 
         }
       ],
       :test => true
     })
     
-    self.zencoder_output_url = "#{S3_BASE_URL}/#{s3_base_path}/#{webm_file_path}"
+    self.zencoder_output_url = "#{S3_BASE_URL}/#{webm_file_path}"
     self.zencoder_id = response.body['id']
     self.save
   end
