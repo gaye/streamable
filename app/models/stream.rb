@@ -59,7 +59,7 @@ class Stream < ActiveRecord::Base
     original_file_path = s3_url_to_path(self.video_preview.url)
     stripped_file_path = strip_extension(original_file_path)
     webm_file_path = "#{stripped_file_path}.webm"
-    thumb_file_path = "#{stripped_file_path}.png"
+    thumb_file_path = "#{stripped_file_path}/thumbs"
     
     response = Zencoder::Job.create({
       :input => "s3://#{original_file_path}",
@@ -73,7 +73,7 @@ class Stream < ActiveRecord::Base
           :thumbnails => [{ 
             :number => 1,
             :label => 'Video Preview Thumbnails',
-            :url => "s3://#{thumb_file_path}" 
+            :base_url => "s3://#{thumb_file_path}" 
           }] 
         }
       ],
@@ -81,7 +81,7 @@ class Stream < ActiveRecord::Base
     })
     
     self.zencoder_output_url = "#{S3_BASE_URL}/#{webm_file_path}"
-    self.zencoder_thumbnail_url = "#{S3_BASE_URL}/#{thumb_file_path}"
+    self.zencoder_thumbnail_url = "#{S3_BASE_URL}/#{thumb_file_path}/frame_0000.png"
     self.zencoder_id = response.body['id'].to_i
     self.save
   end
