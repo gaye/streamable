@@ -18,17 +18,17 @@
 
     <tr>
       <td>
-        <% if @stream.zencoder_state %>
-          <div id="video_preview">
+        <div id="video_preview">
+          <% if @stream.zencoder_state %>
             <video src=<%= @stream.zencoder_output_url %> class="video-js vjs-default-skin" controls
               preload="auto" width="700" height="320" poster=<%= @stream.zencoder_thumbnail_url %>
               data-setup="{}">
               Couldn't display video!
             </video>
-          </div>
-        <% else %>
-          Hang on! Your preview video is being encoded...
-        <% end %>
+          <% else %>
+            Hang on! Your video is getting prepped for the web.
+          <% end %>
+        </div>
       </td>
     
       <td>
