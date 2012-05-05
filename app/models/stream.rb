@@ -67,14 +67,15 @@ class Stream < ActiveRecord::Base
         { 
           :url => "s3://#{webm_file_path}", 
           :notifications => [{:format => 'json', :url => ENCODE_NOTIFY_URL}],
-          :access_control => [{:permission => 'READ', :grantee => 'EVERYONE'}]
+          :access_control => [{:permission => 'READ', :grantee => 'Everyone'}]
         },
         { 
           :thumbnails => [{ 
+            :base_url => "s3://#{thumb_file_path}",
             :number => 1,
             :label => 'Video Preview Thumbnails',
-            :base_url => "s3://#{thumb_file_path}" 
-          }] 
+            :access_control => [{:permission => 'READ', :grantee => 'Everyone'}] 
+          }],
         }
       ],
       :test => true
