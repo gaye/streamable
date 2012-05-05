@@ -5,6 +5,7 @@
 class Stream < ActiveRecord::Base
   S3_BASE_URL = 'http://s3.amazonaws.com'
   ENCODE_NOTIFY_URL = 'http://staging.streamable.tv/streams/encode_notify'
+  EVERYONE = 'http://acs.amazonaws.com/groups/global/AllUsers'
   
   attr_accessible :publisher_id,
                   :title,
@@ -67,14 +68,14 @@ class Stream < ActiveRecord::Base
         { 
           :url => "s3://#{webm_file_path}", 
           :notifications => [{:format => 'json', :url => ENCODE_NOTIFY_URL}],
-          :access_control => [{:permission => 'READ', :grantee => 'Everyone'}]
+          :access_control => [{:permission => 'READ', :grantee => EVERYONE}]
         },
         { 
           :thumbnails => [{ 
             :base_url => "s3://#{thumb_file_path}",
             :number => 1,
             :label => 'Video Preview Thumbnails',
-            :access_control => [{:permission => 'READ', :grantee => 'Everyone'}] 
+            :access_control => [{:permission => 'READ', :grantee => EVERYONE}] 
           }],
         }
       ],
