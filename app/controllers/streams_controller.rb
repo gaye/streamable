@@ -96,8 +96,7 @@ class StreamsController < ApplicationController
     
     respond_to do |format|
       if @stream.save
-        # Delayed job this
-        @stream.encode!
+        @stream.delay.encode!
         
         format.html { redirect_to @stream, :notice => "Great! We'll see you at #{@stream.when}!" }
         format.json { render :json => @stream, :status => :created, :location => @stream }
@@ -142,7 +141,7 @@ class StreamsController < ApplicationController
   # Capture notifications from the Zencoder service about video encoding
   def encode_notify
     stream = Stream.find_by_zencoder_id(params[:job][:id].to_i)
-    stream.capture_notification(params[:output]) if stream
+    stream.delay.capture_notification(params[:output]) if stream
     render :text => 'Thanks, Zencoder!', :status => 200
   end
 end
