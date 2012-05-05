@@ -13,6 +13,7 @@ balancing:
   created_at: '2012-04-25 06:25:49.143373'
   updated_at: '2012-04-25 06:25:49.143373'
   tags: grade7, science
+  zencoder_state: true
   
 inequalities:
    publisher_id: 1
@@ -29,3 +30,5 @@ inequalities:
    created_at: '2012-04-25 06:28:50.678645'
    updated_at: '2012-04-25 06:28:50.678645'
    tags: grade8, math
+   zencoder_state: true
+   

@@ -45,14 +45,14 @@ class Stream < ActiveRecord::Base
   
   # Expects an array of tags as input
   def self.find_by_tags(tags)
-    streams = []
+    streams = Set.new
     tags.each do |tag|
       streams_with_tag = Tag.find_by_name(tag, :include => :streams).streams
       streams_with_tag.delete_if {|stream| !stream.zencoder_state}
-      streams += streams_with_tag
+      streams_with_tag.each {|stream| streams << stream}
     end
     
-    streams
+    streams.to_a
   end
   
   def encode!
