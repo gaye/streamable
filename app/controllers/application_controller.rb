@@ -3,7 +3,7 @@
   Date : 04/21/12
 =end
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery :except => [:encode_notify]
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   
   helper_method :logout, :current_user, :user_logged_in?

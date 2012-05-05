@@ -4,7 +4,8 @@ Streamable::Application.routes.draw do
   match 'users/logout' => 'application#logout'
   
   match 'streams/:id/broadcast' => 'streams#broadcast'
-  match 'streams/index(/:params)' => 'streams#index'  
+  match 'streams/index(/:params)' => 'streams#index'
+  match 'streams/encode_notify' => 'streams#encode_notify', :via => :post
   resources :streams
   
   match 'users/logout' => 'application#logout'

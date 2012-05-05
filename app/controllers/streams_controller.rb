@@ -12,7 +12,7 @@ class StreamsController < ApplicationController
     # we'd rather send some and then continue to load them in via ajax
     # This is a prohibitively expensive request otherwise
     @streams = 
-        params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.all(:include => :publisher)   
+        params[:tags] ? Stream.find_by_tags(params[:tags]) : Stream.find_all_by_zencoder_state(true, :include => :publisher)   
     @tags = Tag.all
     
     respond_to do |format|
@@ -83,7 +83,9 @@ class StreamsController < ApplicationController
   # POST /streams.json
   def create
     # TODO(gaye): Enforce permissions
-    session, token = 
+    
+    # TODO(gaye): Don't do this when a stream is created -- do it when it's time for the broadcast
+    session, token =
         OpenTokHelper::create_session_and_generate_publisher_token(current_user, request.remote_addr)
     params[:stream][:publisher_id] = current_user.id
     params[:stream][:opentok_session_id] = session.session_id
@@ -94,6 +96,9 @@ class StreamsController < ApplicationController
     
     respond_to do |format|
       if @stream.save
+        # Delayed job this
+        @stream.encode!
+        
         format.html { redirect_to @stream, :notice => "Great! We'll see you at #{@stream.when}!" }
         format.json { render :json => @stream, :status => :created, :location => @stream }
       else
@@ -134,7 +139,10 @@ class StreamsController < ApplicationController
     end
   end
   
-  # capture notifications from the Zencoder service about video encoding
+  # Capture notifications from the Zencoder service about video encoding
   def encode_notify
+    stream = Stream.find_by_zencoder_id(params[:job][:id].to_i)
+    stream.capture_notification(params[:output]) if stream
+    render :text => 'Thanks, Zencoder!', :status => 200
   end
 end

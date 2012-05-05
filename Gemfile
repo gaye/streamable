@@ -21,6 +21,7 @@ gem 'thin'
 # rake db:data:dump   ->   Dump contents of Rails database to db/data.yml
 # rake db:data:load   ->   Load contents of db/data.yml into the database
 gem 'yaml_db', :git => 'git://github.com/lostapathy/yaml_db.git'
+gem 'zencoder'
 
 group :test do
   gem 'therubyracer'
