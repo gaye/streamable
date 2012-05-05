@@ -94,9 +94,9 @@ class Stream < ActiveRecord::Base
     if output[:state] == 'finished'
       self.zencoder_state = true
       self.zencoder_output_url = output[:url]
-      self.thumbnail = 
+      # self.thumbnail = 
           open(URI.parse("#{S3_BASE_URL}/#{s3_base_path}/thumbnails_#{self.id}/frame_0000.png"))
-      self.thumbnail_content_type = 'image/png'
+      # self.thumbnail_content_type = 'image/png'
     end
     
     self.save
