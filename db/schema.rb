@@ -43,13 +43,10 @@ ActiveRecord::Schema.define(:version => 20120505162343) do
     t.text     "publisher_token"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
-    t.string   "thumbnail_file_name"
-    t.string   "thumbnail_content_type"
-    t.integer  "thumbnail_file_size"
-    t.datetime "thumbnail_updated_at"
     t.integer  "zencoder_id"
     t.boolean  "zencoder_state",             :default => false
     t.string   "zencoder_output_url"
+    t.string   "zencoder_thumbnail_url"
   end
 
   add_index "streams", ["publisher_id"], :name => "index_streams_on_publisher_id"
